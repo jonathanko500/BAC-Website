@@ -1,0 +1,150 @@
+/* Style the main container */
+.PG-content {
+    background-color: #0056b3;
+}
+
+#everything {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+/* Style the general content */
+#general {
+    margin-top: 20px;
+}
+
+/* Create a flex container for comp and desc */
+#comp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#desc {
+    flex-basis: calc(50% - 10px);
+    margin-left: 10px;
+}
+
+#groups::after,
+#desc::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style description section */
+#desc {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the image */
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Style Instagram section */
+#ig {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 540px;
+}
+
+/* Style ads section */
+.ads {
+    margin-top: 20px;
+}
+
+/* Style ads content */
+#bac-ads {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Style individual sections within ads */
+#members,
+#curr,
+#legacy {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#legacy,
+#members,
+#comp,
+#desc {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#members a {
+    display: block;
+    /* Make links stack vertically */
+    margin-bottom: 10px;
+    /* Add space between links */
+}
+
+/* Style headings within ads sections */
+#members h2,
+#curr h2,
+#legacy h2 {
+    margin-bottom: 10px;
+}
+
+/* Style the Weekly Coach's Email section */
+#coach-update {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    overflow-y: auto;
+}
+
+.email-list-container {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* Style the form input fields and button */
+#add-coach-email-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#add-coach-email-form input[type="text"],
+#add-coach-email-form input[type="file"],
+#add-coach-email-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+    /* body {
+        font-size: 14px;
+    } */
+
+    .PG-content {
+        padding: 10px;
+    }
+}

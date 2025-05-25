@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Private Lessons Page</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lessons/private.css' %}">
+</head>
+
+<body id="PG-grid">
+
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+        <div id="staff" style="text-align: right; margin-right: 10px;">
+
+            <div id="addJob">
+                
+                <a id="jobDesc" class="custom-link" href="{% url 'aboutus:jobDesc' %}"
+                    style="margin-left: 10px;">Available Jobs</a>
+                
+            </div>
+
+            <div id="user-login">
+                {% if user.is_authenticated %}
+                <div class="user-welcome">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-logout custom-link">
+                            Welcome {{ user.username }}
+                        </button>
+                    </form>
+                    <a href="{% url 'lessons:edit_private' %}" class="btn custom-link" style="margin-top: 10px;">Edit
+                        Page</a>
+                </div>
+                {% else %}
+                <a id="login" class="custom-link" href="/login" style="margin-left: 10px;">Staff Log In</a>
+                {% endif %}
+            </div>
+
+            <div id="about-us">
+                <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}" style="margin-left: 10px;">About
+                    Us</a>
+            </div>
+
+        </div>
+
+
+    </header>
+
+    <div class="PG-content">
+
+        <div class="container" style=" width: 100%;">
+            <div id="title" class="box">
+                <h1>PRIVATE LESSONS</h1>
+                {% if schedules.first.urgent %}
+                <h3 id="emergency-anouncement-group-details" class="emergency-anouncement">
+                    {{schedules.first.urgent }}
+                </h3>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="content-row" id="info">
+
+            {% if schedules.first.lesson1_name %}
+            <div id="schedule" class="cBox">
+                <div id="private-lessons" class="box">
+                    <h2>{{ schedules.first.lesson1_name | safe}}</h2>
+                    <h3>{{ schedules.first.lesson1_age | safe}}</h3>
+                    <p>{{ schedules.first.lesson1_description |linebreaksbr}}</p>
+                </div>
+                {% endif %}
+
+                {% if schedules.first.lesson2_name %}
+                <div id="semi-private-lessons" class="box">
+                    <h2>{{ schedules.first.lesson2_name | safe}}</h2>
+                    <h3>{{ schedules.first.lesson2_age | safe}}</h3>
+                    <p>{{ schedules.first.lesson2_description |linebreaksbr}}</p>
+                </div>
+                {% endif %}
+            </div>
+
+            <div id="gLessonPic" class="box">
+                <img src="/static/privateLesson.jpg" alt="Swim Lesson Image" id="lessonImage">
+            </div>
+
+            <div id="detail">
+                <div id="writing">
+                    {% if schedules.first.philosophy_heading %}
+                    <div id="desc" class="box">
+                        <h2>{{ schedules.first.philosophy_heading | safe }}</h2>
+                        <p>{{ schedules.first.philosophy_info |linebreaksbr}}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if schedules.first.policy_heading %}
+                    <div id="policy" class="box">
+                        <h2>{{ schedules.first.policy_heading | safe }}</h2>
+                        <p>{{ schedules.first.policy_info |linebreaksbr}}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if schedules.first.registraion_heading %}
+                    <div id="policy" class="box">
+                        <h2>{{ schedules.first.registraion_heading | safe }}</h2>
+                        <p>{{ schedules.first.registraion_info | safe }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div id="foot">
+            <h2>Questions?</h2>
+            <h3>Contact our Program Coordinator!</h3>
+            <h3>troy@burlingameaquatics.com</h3>
+            <h3>(650) 558 2881</h3>
+        </div>
+    </footer>
+</body>
+
+</html>

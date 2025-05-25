@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/holiday/holiday.css' %}">
+    <title>Burlingame Aquatic Club Holiday Schedule</title>
+</head>
+
+<body id="PG-grid">
+
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff" style="text-align: right; margin-right: 10px;">
+
+            <div id="addJob">
+                <a id="jobDesc" class="custom-link" href="{% url 'aboutus:jobDesc' %}"
+                    style="margin-left: 10px;">Available Jobs</a>
+            </div>
+
+            <div id="user-login">
+                {% if user.is_authenticated %}
+                <div class="user-welcome">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-logout custom-link">Welcome {{ user.username }}</button>
+                    </form>
+                </div>
+                {% else %}
+                <a id="login" class="custom-link" href="/login" style="margin-left: 10px;">Staff Log In</a>
+                {% endif %}
+            </div>
+
+            <div id="about-us">
+                <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}" style="margin-left: 10px;">About
+                    Us</a>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="PG-content">
+        <div id="title" class="box" style="width: 85%;">
+            <h1>HOLIDAY SCHEDULE</h1>
+            {% if user.is_authenticated %}
+            <div id="add_holiday">
+                <a href="{% url 'holiday:create_holidays_view' %}" class="btn btn-primary custom-link">Add Holiday</a>
+            </div>
+            {% endif %}
+        </div>
+
+        <div id="holiday-info-container">
+            <div id="holiday-schedule">
+                {% for holiday in holidays|dictsort:"date" %}
+                <div class="holiday-entry">
+                    <h2>{{ holiday.name }}</h2>
+                    <p>Date: {{ holiday.date }}</p>
+                    {% if holiday.get_status_display == 'Closed' %}
+                    <p>Pool Closed</p>
+                    {% elif holiday.get_status_display == 'Regular Schedule' %}
+                    <p>Regular Schedule</p>
+                    {% else %}
+                    <p>Holiday schedule: <br>{{ holiday.scheduled_time }}</p>
+                    {% endif %}
+                    <div id = "buttons">
+                        {% if user.is_authenticated %}
+                        <div id="edit_holiday">
+                            <a href="{% url 'holiday:edit_holiday_view' holiday.pk %}" class="btn btn-secondary custom-link">Edit</a>
+                        </div>
+                        <div id="delete_holiday" >
+                            <form method="post" action="{% url 'holiday:delete_holiday_view' holiday.pk %}" class="delete-form ">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger custom-link">Delete</button>
+                            </form>
+                        </div>
+                        {% endif %}
+                    </div>
+ 
+                </div>
+                {% endfor %}
+            </div>
+
+
+        </div>
+    </div>
+
+
+</body>
+
+<footer class="footer">
+    <div id="foot">
+        <h2>Questions?</h2>
+        <h3>Contact our Front Desk!</h3>
+        <h3>programs@burlingameaquatics.com</h3>
+        <h3>(650) 558 2881</h3>
+    </div>
+</footer>
+
+</html>

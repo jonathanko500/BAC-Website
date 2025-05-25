@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Edit Summer Program Page</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/summer/editPage2.css' %}">
+</head>
+
+<body id="PG-grid">
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Banner Section -->
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="{% static 'BAC.png' %}" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff">
+            {% if user.is_authenticated %}
+            <div class="user-welcome">
+                <form method="post" action="{% url 'logout' %}" class="logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-logout custom-link">
+                        Welcome {{ user.username }}
+                    </button>
+                </form>
+            </div>
+            {% else %}
+            <a id="login" class="custom-link" href="/login">Staff Log In</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <div class="PG-content">
+        <!-- Title Section -->
+        <div id="title" class="box">
+            <div class="title-box">
+                <h1>BAC EDIT SUMMER PROGRAM</h1>
+            </div>
+        </div>
+        <body>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ program_form.as_p }}
+                <h2>Sessions</h2>
+                {{ session_formset.management_form }}
+                {% for form in session_formset %}
+                    <div id="editPortion">
+                        <h3>Editing Weekday Session {{ forloop.counter }}</h3>
+                        {{ form.as_p }}
+                    </div>
+                {% endfor %}
+                <h2>Weekend Sessions</h2>
+                {{ weekend_session_formset.management_form }}
+                {% for form in weekend_session_formset %}
+                    <div id="editPortion">
+                        <h3>Editing Weekend Session {{ forloop.counter }}</h3>
+                        {{ form.as_p }}
+                    </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-submit">Save</button>
+            </form>
+        </body>
+        </html>
+    </div>
+</body>
+
+</html>

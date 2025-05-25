@@ -1,0 +1,140 @@
+/* Reset some default styles */
+body,
+ul,
+li,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color and font family */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the container for employee profiles */
+#viewCoaches {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Style the employee profile card */
+li {
+    list-style: none;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* Style the employee name */
+h3 {
+    margin-bottom: 10px;
+}
+
+.coach-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.profile-header {
+    margin-bottom: 10px;
+}
+
+.profile-header h3 {
+    margin: 0;
+}
+
+.profile-header p {
+    margin: 0;
+}
+
+.profile-image {
+    margin-bottom: 10px;
+}
+
+#CoachPic {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.coach-profile p {
+    margin: 0;
+}
+
+/* Style the delete button */
+.btn-danger {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* Remove the font-size property */
+}
+
+/* Style the Add Coach Profile section */
+#addCoaches {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Style the form fields */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the submit button */
+#addCoaches button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* Remove the font-size property */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+
+    #viewCoaches,
+    #addCoaches {
+        max-width: 100%;
+    }
+}

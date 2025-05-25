@@ -1,0 +1,37 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Content styling */
+.PG-content {
+    background-color: gold;
+    /* background-color: red; */
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    /* Use full width to ensure it stays within .PG-content */
+    max-width: 1200px;
+    /* Maximum width to maintain layout on larger screens */
+    margin: 20px auto;
+    /* Center the container while keeping the top and bottom margins */
+    padding: 20px;
+    /* Keep padding but ensure total width calculation includes it */
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width */
+}
+
+
+#info .container {
+    flex-direction: column;
+}

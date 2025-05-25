@@ -1,0 +1,93 @@
+/* .PG-content {
+    background-color: #C0C0C0;
+} */
+
+#viewDesc,
+#addDesc {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#viewDesc {
+    margin-bottom: 20px;
+}
+
+#viewDesc h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#viewDesc li {
+    list-style-type: none;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px;
+
+}
+
+
+#viewDesc ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+#deleteDesc form {
+    display: inline;
+}
+
+#deleteDesc button {
+    /* background-color: #dc3545;
+    color: #fff; */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#addDesc {
+    margin-top: 20px;
+}
+
+#addDesc h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#addDesc form {
+    width: 300px;
+}
+
+#addDesc label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#addDesc input[type="text"],
+#addDesc input[type="file"] {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+#addDesc button[type="submit"] {
+    /* background-color: #007bff;
+    color: #fff; */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* #addDesc button[type="submit"]:hover,
+#deleteDesc button:hover {
+    background-color: #0056b3;
+} */
+
+
+a {
+    text-decoration: none;
+}

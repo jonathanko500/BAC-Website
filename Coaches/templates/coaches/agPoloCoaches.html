@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Competitive Polo Coaches Page</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile/profile3.css' %}">
+</head>
+
+
+<style>
+    /* Apply styles to the container */
+    #BAC-AG-Coaches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        width: 50%;
+        height: 50%;
+        margin: 0 auto 20px;
+        /* Center horizontally */
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    /* Apply styles to the image */
+    #BAC-AG-Coaches img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+</style>
+
+<body id="PG-grid">
+
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Banner Section -->
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff" style="text-align: right; margin-right: 10px;">
+            <div id="addJob">
+                <a id="jobDesc" class="custom-link" href="{% url 'aboutus:jobDesc' %}" style="margin-left: 10px;">
+                    Available Jobs
+                </a>
+            </div>
+
+            <div id="user-login">
+                {% if user.is_authenticated %}
+                <div class="user-welcome">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-logout custom-link">
+                            Welcome {{ user.username }}
+                        </button>
+                    </form>
+                </div>
+                {% else %}
+                <a id="login" class="custom-link" href="/login" style="margin-right: 10px;">
+                    Staff Log In
+                </a>
+                {% endif %}
+            </div>
+
+            <div id="about-us">
+                <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}">
+                    About Us
+                </a>
+            </div>
+        </div>
+
+
+
+    </header>
+
+    <!-- Content Section -->
+    <div class="PG-content" style="background-color: #0056b3;;">
+        <!-- Title Section -->
+        <div id="title" class="box">
+            <h1>BAC Competitive Polo Coaches</h1>
+        </div>
+
+        <div id="coaches">
+
+            <div id="viewCoaches">
+                <ul>
+                    {% for coach in coaches %}
+                    <li class="coach-profile">
+                        <div class="profile-header">
+                            <h3>{{ coach.name }}</h3>
+                        </div>
+                        <div class="profile-image">
+                            {% if coach.picture %}
+                            <img src="{{ coach.picture.url }}" alt="coachPic" id="CoachPic">
+                            {% else %}
+                            <img src="/static/defaultProfile.jpg" alt="coachPic" id="CoachPic">
+                            {% endif %}
+                        </div>
+                        <p>{{ coach.description|linebreaksbr }}</p>
+
+                        {% if user.is_authenticated %}
+                        {% if coach.name %}
+                        <!-- Add a delete button -->
+                        <form method="post" action="{% url 'coaches:deleteAGPoloCoach' coach.name %}"
+                            class="delete-form">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                        {% endif %}
+                        {% endif %}
+
+                        {% endfor %}
+                    </li>
+                </ul>
+            </div>
+
+            {% if user.is_authenticated %}
+            <div id="addCoaches">
+                <h2>Add Coach Profile</h2>
+                <form id="add-coach-form" method="post" enctype="multipart/form-data"
+                    action="{% url 'coaches:addAGpolocoaches' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="coach_name">Coach Name:</label>
+                        <input type="text" id="coach_name" name="coach_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="picture">Profile Picture:</label>
+                        <input type="file" id="picture" name="picture">
+                    </div>
+                    <button type="submit">Add Coach</button>
+                </form>
+
+                <script src="{% static 'add_coach.js' %}"></script>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div id="foot">
+            <h2>Questions?</h2>
+            <h3>Contact our Head Coach: Sara McGuire!</h3>
+            <h3>smcguire@burlingameaquatics.com</h3>
+            <h3>(650) 558 2881</h3>
+        </div>
+    </footer>
+</body>
+
+</html>

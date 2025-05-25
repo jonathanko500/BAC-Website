@@ -1,0 +1,126 @@
+#lesson-info {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    /* background-color: #f9f9f9; */
+    /* background-color: gold;
+    background-color: #C0C0C0; */
+    background-color: #0056b3;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#lesson-info h2 {
+
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.lesson-detail {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.lesson-detail p {
+    margin: 10px 0;
+    line-height: 1.5;
+
+}
+
+.benchmarks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.b-card {
+    flex: 1;
+    min-width: 250px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 2px solid black;
+
+}
+
+.b-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+
+}
+
+.b-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.b-card ul li {
+    background-color: #eef2f7;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.b-card img {
+    display: block;
+    margin: 10px auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+
+.lesson-detail p,
+.b-card ul li {
+    word-wrap: break-word;
+}
+
+#add-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#add-button a {
+    display: inline-block;
+}
+
+@media screen and (max-width: 768px) {
+    .benchmarks {
+        flex-direction: column;
+    }
+
+    .b-card {
+        min-width: auto;
+        /* Adjusts the minimum width for smaller screens */
+    }
+
+    .lesson-detail p,
+    .b-card ul li {
+        font-size: 16px;
+        /* Adjusts font size for readability on smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #lesson-info {
+        padding: 10px;
+        /* Reduces padding for smaller screens */
+    }
+
+    .lesson-detail,
+    .b-card {
+        padding: 10px;
+        /* Reduces padding inside cards for smaller screens */
+    }
+
+    .b-card h4 {
+        font-size: 16px;
+        /* Adjusts heading size for better fit on small screens */
+    }
+}

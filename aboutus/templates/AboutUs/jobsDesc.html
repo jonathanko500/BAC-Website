@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<!-- http://127.0.0.1:8000/aboutus/jobDesc/ -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Job Description</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/AboutUs/jobDesc.css' %}">
+</head>
+
+<body id="PG-grid">
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Banner Section -->
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff" style="text-align: right; margin-right: 10px;">
+            {% if user.is_authenticated %}
+            <div class="user-welcome">
+                <form method="post" action="{% url 'logout' %}" class="logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-logout custom-link">Welcome {{ user.username }}</button>
+                    <a href="{% url 'aboutus:edit_aboutus' %}" class="btn custom-link" style="margin-right: 10px;">
+                        Edit Page
+                    </a>
+                </form>
+                <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}" style="margin-left: 10px;">About
+                    Us</a>
+            </div>
+            {% else %}
+            <a id="login" class="custom-link" href="/login" style="margin-right: 10px;">Staff Log In</a>
+            <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}" style="margin-left: 10px;">About
+                Us</a>
+            {% endif %}
+        </div>
+
+    </header>
+
+    <div class="PG-content">
+        <div id="viewDesc">
+            <h1>Job Description</h1>
+
+            <div id="admin"><!-- Administration Jobs -->
+                <h3>Administration</h3>
+                <ul>
+                    {% for job in change %}
+                    {% if job.job_type == 'administration' %}
+                    <li>
+                        <div><a href="{{ job.jobDesc_file.url }}" download>{{ job.name }} Description</a></div>
+                        {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'aboutus:jobDesc_delete' job.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                    {% empty %}
+                    <li>No Administration jobs available.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div id="comp"><!-- Competitive Jobs -->
+
+                <h3>Competitive</h3>
+                <ul>
+                    {% for job in change %}
+                    {% if job.job_type == 'competitive' %}
+                    <li>
+                        <div><a href="{{ job.jobDesc_file.url }}" download>{{ job.name }} Description</a></div>
+                        {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'aboutus:jobDesc_delete' job.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                    {% empty %}
+                    <li>No Competitive jobs available.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div id="masters"><!-- Masters Jobs -->
+                <h3>Masters</h3>
+                <ul>
+                    {% for job in change %}
+                    {% if job.job_type == 'masters' %}
+                    <li>
+                        <div><a href="{{ job.jobDesc_file.url }}" download>{{ job.name }} Description</a></div>
+                        {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'aboutus:jobDesc_delete' job.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                    {% empty %}
+                    <li>No Masters jobs available.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div id="staff"><!-- Staff Jobs -->
+                <h3>Staff</h3>
+                <ul>
+                    {% for job in change %}
+                    {% if job.job_type == 'staff' %}
+                    <li>
+                        <div><a href="{{ job.jobDesc_file.url }}" download>{{ job.name }} Description</a></div>
+                        {% if user.is_authenticated %}
+                        <form method="post" action="{% url 'aboutus:jobDesc_delete' job.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                    {% empty %}
+                    <li>No Staff jobs available.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+
+        {% if user.is_authenticated %}
+        <div id="addDesc">
+
+            <h2>Add Job Description</h2>
+
+            {% if error %}
+            <p style="color: red;">{{ error }}</p>
+            {% endif %}
+
+            <form method="post" enctype="multipart/form-data" action="{% url 'aboutus:jobDesc_create' %}">
+                {% csrf_token %}
+
+                <label for="name">Job Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="job_type">Job Type:</label>
+                <select id="job_type" name="job_type" required>
+                    <option value="">Select Job Type</option>
+                    <option value="administration">Administration</option>
+                    <option value="competitive">Competitive</option>
+                    <option value="masters">Masters</option>
+                    <option value="staff">Staff</option>
+                </select><br><br>
+
+                <label for="jobDesc_file">Job Description File:</label>
+                <input type="file" id="jobDesc_file" name="jobDesc_file" required><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+
+        </div>
+        {% endif %}
+
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <div id="foot">
+            <h2>Questions?</h2>
+            <h3>Contact our Front Desk!</h3>
+            <h3>programs@burlingameaquatics.com</h3>
+            <h3>(650)-558-2881</h3>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BAC Summer Programs Page</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/summer/summerHome.css' %}" />
+</head>
+<body id="PG-grid">
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Banner Section -->
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo" />
+                </a>
+            </div>
+        </div>
+
+        <div id="staff" style="text-align: right; margin-right: 10px">
+            <div id="addJob">
+                <a id="jobDesc" class="custom-link" href="{% url 'aboutus:jobDesc' %}" >Available Jobs</a>
+            </div>
+
+            <div id="user-login">
+                {% if user.is_authenticated %}
+                <div class="user-welcome">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-logout custom-link">Welcome {{ user.username }}</button>
+                    </form>
+                    <!-- add button for programs -->
+                    <div>
+                        <a href="{% url 'summProgram:addProgramAndSessions' %}" class="btn custom-link add-program-btn">Add New Program</a>
+                    </div>
+                    <div>
+                        <a id="editPageInfo" class="custom-link" href="{% url 'summProgram:editPageInfo' %}" >Edit Page</a>
+                    </div>
+                </div>
+                {% else %}
+                <a id="login" class="custom-link" href="/login" >Staff Log In</a>
+                {% endif %}
+            </div>
+
+            <div id="about-us">
+                <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}" >About Us</a>
+            </div>   
+            
+            <div id = holiday>
+                <a id="holiday" class="custom-link" href="{% url 'holiday:holiday_view' %}">Holiday Schedule</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <div class="PG-content">
+        <!-- Title Section -->
+        <div id="title" class="box">
+            <div class="title-box">
+                <h1>SUMMER PROGRAMS</h1>
+                <div id="emergency-announcement-container">
+                    {% if page_info.first.urgent %}
+                    <h3 id="emergency-announcement" class="emergency-announcement" style="color: red;">
+                        {{ page_info.first.urgent | linebreaksbr}}
+                    </h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div id="programs" class="programs-container">
+            <!-- programs -->
+            <ul class="program-list">
+                {% for program in programs %}
+                <li class="program-item">
+                    <!-- program info -->
+                    <div class="program-info">
+                        <div class="program-title-container">
+                            <h1 class="program-title">{{ program.title }}</h1>
+                        </div>
+                        <div class="program-description-container">
+                            <h3 class="program-description">{{ program.description | linebreaksbr }}</h3>
+                        </div>
+                        <div class="class-description-container">
+                            <h2>CLASS DURATION</h2>
+                            <ul class="class-description">
+                                {% for line in program.class_duration.splitlines %}
+                                <li>{{ line }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="program-fee-container">
+                            <h2>FEE</h2>
+                            {% if program.weekend_fee %}
+                            <ul>
+                                <li class="program-fee">Weekday Fee: ${{ program.fee }} per session</li>
+                                <li class="program-fee">Weekend Fee: ${{ program.weekend_fee }} per session</li>
+                            </ul>
+                            {% else %}
+                            <ul>
+                                <li class="program-fee">Fee: ${{ program.fee }} per session</li>
+                            </ul>
+                            {% endif %}
+                            {% if program.fee_note %}
+                            <ul>
+                                <li class="program-fee-note">{{ program.fee_note | linebreaksbr }}</li>
+                            </ul>
+                            {% endif %}
+                        </div>
+                        <div class="program-image-container">
+                            {% if program.picture %}
+                            <img src="{{ program.picture.url }}" alt="{{ program.title }} image" class="program-image" />
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- session info -->
+                    <div class="session-container">
+                        <!-- weekday session -->
+                        <div id="weekdaySession" class="session-info">
+                            <h1 class="program-sessions-title">Weekday Sessions</h1>
+                            <ul class="session-list">
+                                {% for session in program.sessions.all %}
+                                <li class="session-item">
+                                    <span class="session-counter">Session {{ forloop.counter }}:</span>
+                                    <span class="session-dates">{{ session.start_date|date:"M d" }} - {{ session.end_date|date:"M d" }}</span><br />
+                                    <span class="session-status">
+                                        {% if session.is_open %}
+                                        <span class="status-open">Open</span>
+                                        {% else %}
+                                        <span class="status-full">Full</span>
+                                        {% endif %}
+                                    </span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    
+                        <!-- weekend session -->
+                        {% if program.weekend_sessions.all %}
+                        <div id="weekendSession" class="session-info">
+                            <h1 class="program-sessions-title">Weekend Sessions</h1>
+                            <ul class="session-list">
+                                {% for session in program.weekend_sessions.all %}
+                                <li class="session-item">
+                                    <span class="session-counter">Session {{ forloop.counter }}:</span>
+                                    <span class="session-dates">{{ session.start_date|date:"M d" }} - {{ session.end_date|date:"M d" }}</span><br />
+                                    <span class="session-status">
+                                        {% if session.is_open %}
+                                        <span class="status-open">Open</span>
+                                        {% else %}
+                                        <span class="status-full">Full</span>
+                                        {% endif %}
+                                    </span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <!-- edit and delete buttons -->
+                    <div class="edit-delete-btns">
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'summProgram:editProgram' program.id %}" class="btn custom-link edit-program-btn">Edit Program</a>
+                        <form method="post" action="{% url 'summProgram:deleteProgram' program.id %}" class="delete-form">
+                            {% csrf_token %}
+                            <button type="submit" class="btn custom-link delete-program-btn" style="margin-top: 10px">Delete Program</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <!-- recswim -->
+            <div id="recswim" class="program-item">
+                <!-- Recreational Swim Info -->
+                <div class="program-info">
+                    <h2 class="rec-title">Recreational Swim</h2>
+                    <h3 class="program-description">{{ page_info.first.recswim_info }}</h3>
+            
+                    <!-- Schedule & Fees Section -->
+                    <h2 class="rec-title">Schedule & Fees</h2>
+                    <ul class="rec-schedule-fees">
+                        <!-- weekdays info -->
+                        {% if page_info.first.weekdays %}
+                        <li class="session-dates">
+                            <strong>{{ page_info.first.weekdays }}:</strong> {{ page_info.first.weekdays_timeframe }}
+                        </li>
+                        {% endif %}
+                        <!-- weekdends info -->
+                        {% if page_info.first.weekends %}
+                        <li class="session-dates">
+                            <strong>{{ page_info.first.weekends }}:</strong> {{ page_info.first.weekends_timeframe }}
+                        </li>
+                        {% endif %}
+                        <!-- fee -->
+                        <li class="rec-fee">
+                            <strong>Fee:</strong> ${{ page_info.first.daily_fee }} per person
+                        </li>
+                    </ul>
+                </div>
+            
+                <!-- Recreational Swim Image -->
+                <div class="rec-image-container">
+                    {% if page_info.first.image %}
+                        <img src="{{ page_info.first.image.url }}" alt="Recreational Swim Image" class="rec-image" />
+                    {% endif %}
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="registration-info">
+            <h2>Register Here</h2>
+            <ol class="program-fee-note">
+                {% for line in page_info.first.registration_info.splitlines %}
+                <li>{{ line }}</li>
+                {% endfor %}
+            </ol>
+            <a id="Register" class="custom-link" href="https://secure.rec1.com/CA/burlingame-aquatics-ca/catalog">Register Here</a>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div id="foot">
+            <h2>Questions?</h2>
+            <h3>Contact our Front Desk!</h3>
+            <h3>programs@burlingameaquatics.com</h3>
+            <h3>(650) 558 2881</h3>
+        </div>
+    </footer>
+</body>
+</html>

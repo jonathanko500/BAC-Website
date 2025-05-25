@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC AG Polo Edit Page</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Comp/Polo/agPolo.css' %}">
+</head>
+
+<body id="PG-grid">
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Banner Section -->
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="{% static 'BAC.png' %}" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff">
+            {% if user.is_authenticated %}
+            <div class="user-welcome">
+                <form method="post" action="{% url 'logout' %}" class="logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-logout custom-link">
+                        Welcome {{ user.username }}
+                    </button>
+                </form>
+            </div>
+            {% else %}
+            <a id="login" class="custom-link" href="/login">Staff Log In</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <div class="PG-content">
+        <!-- Title Section -->
+        <div id="title" class="box">
+            <div class="title-box">
+                <h1>COMPETITIVE POLO PAGE EDIT</h1>
+            </div>
+        </div>
+
+        {% block content %}
+        <div id="scheduleInfo" class="box">
+            <form method="post" action="{% url 'competitive:compPoloEdit' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Save</button>
+            </form>
+        </div>
+        {% endblock %}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Program and Sessions</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/summer/editPage2.css' %}">
+</head>
+
+<body id="PG-grid">
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Banner Section -->
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="{% static 'BAC.png' %}" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff">
+            {% if user.is_authenticated %}
+            <div class="user-welcome">
+                <form method="post" action="{% url 'logout' %}" class="logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-logout custom-link">
+                        Welcome {{ user.username }}
+                    </button>
+                </form>
+            </div>
+            {% else %}
+            <a id="login" class="custom-link" href="/login">Staff Log In</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <div class="PG-content">
+        <!-- Title Section -->
+        <div id="title" class="box">
+            <div class="title-box">
+                <h1>Add New Program and Sessions</h1>
+            </div>
+        </div>
+        
+        <form method="post" enctype="multipart/form-data">
+            <!-- Add Program -->
+            {% csrf_token %}
+            {{ program_form.as_p }}
+            
+            <h2>Weekday Sessions</h2>
+            <div id="calander">
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date" required>
+                <label for="end_date">End Date:</label>
+                <input type="date" id="end_date" name="end_date" required>
+            </div>
+            
+            <div id="editPortion">
+                {{ session_formset.management_form }}
+                {% for form in session_formset %}
+                {{ form.as_p }}
+                {% endfor %}
+            </div>
+
+
+            <h2>Weekend Sessions</h2>
+
+            <div id="calander">
+                <label for="weekend_start_date">Weekend Start Date:</label>
+                <input type="date" id="weekend_start_date" name="weekend_start_date" required>
+                <label for="weekend_end_date">Weekend End Date:</label>
+                <input type="date" id="weekend_end_date" name="weekend_end_date" required>
+            </div>
+
+            <div id="editPortion">
+                {{ weekend_session_formset.management_form }}
+                {% for form in weekend_session_formset %}
+                {{ form.as_p }}
+                {% endfor %}
+            </div>
+
+            
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+
+</html>

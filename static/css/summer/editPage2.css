@@ -1,0 +1,38 @@
+#editPortion {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+
+#calander label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#calander {
+    margin-top: 20px;
+    margin-bottom: 40px; /* Added more space below the calendar section */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+#calander input[type="date"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+
+.PG-content {
+    background-color: gold;
+}

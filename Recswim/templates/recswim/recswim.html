@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Rec Swim Page</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/RecSwim/recswim.css' %}">
+</head>
+
+<body id="PG-grid">
+
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff" style="text-align: right; margin-right: 10px;">
+            <div id="addJob">
+                <a id="jobDesc" class="custom-link" href="{% url 'aboutus:jobDesc' %}">Available Jobs</a>
+            </div>
+            <div id="user-login">
+                {% if user.is_authenticated %}
+                <div class="user-welcome">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-logout custom-link">Welcome {{ user.username }}</button>
+                    <a href="{% url 'recswim:edit_schedule' %}" class="btn custom-link">Edit Page</a>
+                    </form>
+                </div>
+                {% else %}
+                <a id="login" class="custom-link" href="/login">Staff Log In</a>
+                {% endif %}
+            </div>
+            <div id="about-us">
+                <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}">About Us</a>
+            </div>
+            <div id="holiday">
+                <a id="holiday" class="custom-link" href="{% url 'holiday:holiday_view' %}">Holiday Schedule</a>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="PG-content">
+        <div id="title" class="box">
+            <div class="title-box">
+                <h1>RECREATIONAL SWIMMING</h1>
+                <div id="emergency-anouncement-container">
+                    {% if schedules.first.urgent %}
+                    <h3 id="emergency-anouncement-rec-swim" class="emergency-anouncement" style="color: red;">
+                        {{ schedules.first.urgent }}
+                    </h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="top">
+                <div id="info" style="width: 100%;">
+
+                    <div id="desc" class="box">
+                        <h2>Information</h2>
+                        <div id="card">
+                            <h3>{{ schedules.first.info }}</h3>
+                        </div>
+                    </div>
+
+                    <img src="/static/rec.jpg" alt="recPic" id="recPic">
+
+                    <div id="writing">
+                        <div id="schedule" class="box">
+                            <h2>Schedule</h2>
+                            <ul>
+                                {% if schedules.first.weekdays %}
+                                <li>
+                                    <h3>{{ schedules.first.weekdays }}: {{ schedules.first.weekdays_timeframe }}</h3>
+                                </li>
+                                {% endif %}
+                                {% if schedules.first.weekends %}
+                                <li>
+                                    <h3>{{ schedules.first.weekends }}: {{ schedules.first.weekends_timeframe }}</h3>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+
+
+                        <div id="fees" class="box" style="margin-left: 20px;">
+                            <h2>Fees</h2>
+                            <div id="card">
+                                <h3>${{ schedules.first.daily_fee }}/Person</h3>
+                                <h3>{{ schedules.first.registration_info | safe }}</h3>
+                                <h3></h3>
+                                <a id="Register" class="custom-link"
+                                    href="https://secure.rec1.com/CA/burlingame-aquatics-ca/catalog">Register Here
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div id="foot">
+            <h2>Questions?</h2>
+            <h3>Contact our Front Desk!</h3>
+            <h3>programs@burlingameaquatics.com</h3>
+            <h3>(650) 558 2881</h3>
+        </div>
+    </footer>
+</body>
+
+</html>

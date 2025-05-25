@@ -1,0 +1,164 @@
+{% load static %}
+<!-- first lesson page -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Swim Lessons Page</title>
+    <link rel="stylesheet" , href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lessons/lessonHome.css' %}">
+</head>
+
+<body id="PG-grid">
+
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff" style="text-align: right; margin-right: 10px;">
+
+            <div id="addJob">
+                <a id="jobDesc" class="custom-link" href="{% url 'aboutus:jobDesc' %}">Available Jobs</a>
+            </div>
+
+            <div id="user-login">
+                {% if user.is_authenticated %}
+                <div class="user-welcome">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-logout custom-link">Welcome {{ user.username }}</button>
+                    </form>
+                    <a href="{% url 'lessons:edit_swim_lessons' %}" class="btn custom-link">Edit Page</a>
+                </div>
+                {% else %}
+                <a id="login" class="custom-link" href="/login">Staff Log In</a>
+                {% endif %}
+            </div>
+
+            <div id="about-us">
+                <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}">About Us</a>
+            </div>
+
+            <div id = holiday>
+                <a id="holiday" class="custom-link" href="{% url 'holiday:holiday_view' %}">Holiday Schedule</a>
+            </div>
+        </div>
+
+
+    </header>
+
+    <div class="PG-content">
+
+        <div id="title" class="box" style="width: 85%;">
+            <h1>SWIM LESSONS</h1>
+            {% if schedules.first.urgent %}
+            <div id="emergency-anouncement-container">
+                <h3 id="emergency-anouncement-swim-team" class="emergency-anouncement">
+                    {{schedules.first.urgent|linebreaksbr }}
+                </h3>
+            </div>
+            {% endif %}
+        </div>
+
+        <div id="info-container">
+            <div id="top-lesson">
+
+                <div id="desc" style="margin-left: 10px;">
+                    <h2>Our Teaching Philosophy</h2>
+                    <p>{{schedules.first.philosophy |linebreaksbr}}</p>
+
+                    <a class="custom-link" href="{% url 'lessons:lessonInfo' %}" id="groupDesc">
+                        Description of Swim Lessons
+                    </a>
+
+                    <a class="custom-link" href="{% url 'lessons:private' %}" id="privateLink">
+                        Private Lessons
+                    </a>
+
+                    <a class="custom-link"
+                        href="https://www.gomotionapp.com/team/psba/page/water-polo/splashball-water-polo"
+                        id="privateLink">
+                        Description of Water Polo
+                    </a>
+                </div>
+
+
+            </div>
+
+            {% if schedules.first.display_roadmap %}
+            <div id="gLessonPic">
+                <img src="{{ schedules.first.roadmap_image.url }}" alt="Swim Lesson Image">
+            </div>
+            {% else %}
+            <div id="gLessonPic">
+                <img src="/static/swimLesson.jpg" alt="Swim Lesson Image">
+            </div>
+            {% endif %}
+
+
+            <div id="detail">
+                <div id="reg" style="margin-left: 20px;">
+                    <h2>Registration</h2>
+
+                    {% if schedules.first.registration_info %}
+                    <ul>
+                        {% for point in schedules.first.get_registration_info_as_list %}
+                        <li>{{ point }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    <a id="Register" class="custom-link"
+                        href="https://secure.rec1.com/CA/burlingame-aquatics-ca/catalog">Register Here!</a>
+                </div>
+
+                <div id="waitlist" style="margin-left: 20px;">
+                    <h2>Waitlist</h2>
+                    {% if schedules.first.waitlist_info %}
+                    <ul>
+                        {% for point in schedules.first.get_waitlist_info_as_list %}
+                        <li>{{ point }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                </div>
+                <div id="policy" style="margin-left: 20px;">
+                    <h2>Policy</h2>
+                    {% if schedules.first.policy %}
+                    <ul>
+                        {% for point in schedules.first.get_policy_info_as_list %}
+                        <li>{{ point }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer class="footer">
+        <div id="foot">
+            <h2>Questions?</h2>
+            <h3>Contact our Front Desk!</h3>
+            <h3>programs@burlingameaquatics.com</h3>
+            <h3>(650) 558 2881</h3>
+        </div>
+    </footer>
+</body>
+
+</html>

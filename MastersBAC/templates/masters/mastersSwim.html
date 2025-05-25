@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Masters Swim Page</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Masters/Swim/mSwim.css' %}">
+    <link rel="stylesheet" href="{% static 'css/picture.css' %}">
+</head>
+
+<body id="PG-grid">
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Banner Section -->
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff" style="text-align: right; margin-right: 10px;">
+            
+            <div id="addJob">
+                <a id="jobDesc" class="custom-link" href="{% url 'aboutus:jobDesc' %}">
+                    Available Jobs
+                </a>
+            </div>
+
+            <div id="user-login">
+                {% if user.is_authenticated %}
+                <div class="user-welcome">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-logout custom-link">
+                            Welcome {{ user.username }}
+                        </button>
+                    </form>
+                    <a href="{% url 'masters:edit_swim_schedule' %}" class="btn custom-link">
+                        Edit Page
+                    </a>
+                </div>
+                {% else %}
+                <a id="login" class="custom-link" href="/login">Staff Log In</a>
+                {% endif %}
+            </div>
+
+            <div id="about-us">
+                <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}">About Us</a>
+            </div>
+
+            <div id = holiday>
+                <a id="holiday" class="custom-link" href="{% url 'holiday:holiday_view' %}">Holiday Schedule</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <div class="PG-content">
+        <!-- Title Section -->
+        <div id="title" class="box">
+            <h1>BAC Masters Swimming</h1>
+            <div id="emergency-anouncement-container">
+                <h3 id="emergency-anouncement-Masters-swimming" class="emergency-anouncement">
+                    {{ schedules.first.urgent |linebreaksbr }}
+                </h3>
+            </div>
+        </div>
+
+        <div id="container">
+            <!-- Main Info -->
+            <div id="ads">
+                <div id="schedule-and-fees">
+                    <div id="schedule">
+                        <h2>Schedule</h2>
+                        <div id="scheduleInfo" class="schedule-row">
+                            <div class="schedule-col-2">
+                                <h3>Monday - Friday</h3>
+                                <ul>
+                                    {% if schedules.first.weekdays_morning %}
+                                    <li>{{ schedules.first.weekdays_morning }}</li>
+                                    {% endif %}
+                                    {% if schedules.first.weekdays_afternoon %}
+                                    <li>{{ schedules.first.weekdays_afternoon }}</li>
+                                    {% endif %}
+                                </ul>
+
+                                <h3>Saturday - Sunday</h3>
+                                <ul>
+                                    {% if schedules.first.weekends %}
+                                    <li>{{ schedules.first.weekends }}</li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <!-- <div class="schedule-col-2">
+                                <h3>Short Course Practices</h3>
+                                <ul>
+                                    {% if schedules.first.SC_morning_practices %}
+                                    <li>Morning: {{ schedules.first.SC_morning_practices }}</li>
+                                    {% endif %}
+                                    {% if schedules.first.SC_afternoon_practices %}
+                                    <li>Afternoon: {{ schedules.first.SC_afternoon_practices }}</li>
+                                    {% endif %}
+                                    {% if schedules.first.SC_weekend_pracitces %}
+                                    <li>{{ schedules.first.SC_weekend_pracitces }}</li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <div class="schedule-col-2">
+                                    {% if schedules.first.SC_weekend_pracitces %}
+                                    <li>{{ schedules.first.SC_weekend_pracitces }}</li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <div class="schedule-col-2">
+                                <h3>Long Course Practices</h3>
+                                <ul>
+                                    {% if schedules.first.LC_morning_pracitces %}
+                                    <li>Morning: {{ schedules.first.LC_morning_pracitces }}</li>
+                                    {% endif %}
+                                    {% if schedules.first.LC_weekend_pracitces %}
+                                    <li>{{ schedules.first.LC_weekend_pracitces }}</li>
+                                    {% endif %}
+                                </ul>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div id="fees" class="card">
+                        <h2>Fees</h2>
+                        <div>
+                            <h3>Monthly Pass: ${{ schedules.first.monthly_fee }}/Person</h3>
+                            <h3>10-pack Drop-in : ${{ schedules.first.ticket_pass }}/Person</h3>
+                            <h3>Daily Drop-in Pass: ${{ schedules.first.daily_fee }}/Person</h3>
+                            <a id="Register" class="custom-link"
+                                href="https://secure.rec1.com/CA/burlingame-aquatics-ca/catalog">Register Here</a>
+                        </div>
+                    </div>
+                    <div id="newsletter" class="card">
+                        <h2>Stay Up to Date with Us</h2>
+                        <div>
+                            <h4>Last Update : {{ schedules.first.newsletterDate }}</h4>
+                            <div id="newsLink">
+                                <a id="Register" class="custom-link"
+                                    href="{{ schedules.first.newsletterLink }}">Newsletter</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="info">
+                    <h2>Philosophy</h2>
+                    <p>
+                        {{ schedules.first.philosophy |linebreaksbr}}
+                    </p>
+                    <!-- <a id="swimMastersCoaches" class="custom-link" href="{% url 'coaches:mastersSwimCoaches' %}">
+                        Meet Our Coaches
+                    </a> -->
+                    <div id="mastersSwimLogo">
+                        <img src="/static/bacMasterSwim.jpg" alt="mastersSwimLogo" id="mastersSwimLogo">
+                    </div>
+                </div>
+            </div>
+
+            <!-- special event -->
+            {% if schedules.first.specEvent_display %}
+            <div id="specEvent" class="schedule-col">
+                <h2>{{ schedules.first.specEvent_title }}</h2>
+                <p>{{ schedules.first.specEvent_desc |linebreaksbr}}</p>
+                <a id="swimMastersCoaches" class="custom-link" href="{{ schedules.first.specEVent_registration_link }}"
+                    style="margin-right: 10px;">{{ schedules.first.specEvent_button_name }}
+                </a>
+            </div>
+            {% endif %}
+
+            <div id="reg" class="schedule-col">
+                <h2>Registration</h2>
+                <p>{{ schedules.first.registration |safe }}</p>
+            </div>
+
+            <!-- pictures -->
+            <div id="picture">
+                <div id="ig">
+                    <blockquote class="instagram-media"
+                        data-instgrm-permalink="https://www.instagram.com/bacmasters/?utm_source=ig_embed&amp;utm_campaign=loading"
+                        data-instgrm-version="14">
+                        <div class="ig-content">
+                            <a href="https://www.instagram.com/bacmasters/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                target="_blank">
+                                <div class="ig-header">
+                                    <div class="ig-profile-image"></div>
+                                    <div class="ig-profile-details">
+                                        <div class="ig-name"></div>
+                                        <div class="ig-username"></div>
+                                    </div>
+                                </div>
+                                <div class="ig-placeholder"></div>
+                                <div class="ig-icon-container">
+                                    <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1"
+                                        xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </blockquote>
+                    <script async src="//www.instagram.com/embed.js"></script>
+                </div>
+
+                <div id="slideshow">
+                    <img src="/static/mSwimPool.jpg" alt="Slideshow Image">
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <div id="foot">
+            <h2>Questions?</h2>
+            <h3>Contact our Front Desk!</h3>
+            <h3>programs@burlingameaquatics.com</h3>
+            <h3>(650)-558-2881</h3>
+        </div>
+    </div>
+</body>
+
+</html>

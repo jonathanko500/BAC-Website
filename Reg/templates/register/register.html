@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Register Page</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body id="PG-grid">
+
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Content Section -->
+        <H1>THIS PAGE IS FOR BAC STAFF ONLY</H1>
+        {%block content%}
+        <form method="POST" class="form-group">
+            {%csrf_token%}
+            {{form}}
+            <button type="submit" class="btn btn-success">Register</button>
+        </form>
+        {%endblock%}
+    </div>
+
+
+
+
+</body>
+
+</html>

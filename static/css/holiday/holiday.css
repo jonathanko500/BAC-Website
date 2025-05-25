@@ -1,0 +1,102 @@
+#holiday-info-container {
+    width: 30%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#holiday-schedule {
+    margin-top: 20px;
+}
+
+.holiday-entry {
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.holiday-entry h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.holiday-entry p {
+    margin: 5px 0;
+    color: #555;
+}
+
+#edit_holiday, #delete_holiday {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#edit_holiday .btn, #delete_holiday .btn {
+    margin-top: 10px;
+}
+
+#add_holiday {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#add_holiday .btn {
+    font-size: 1.2em;
+    padding: 10px 20px;
+}
+
+@media (max-width: 768px) {
+    #holiday-info-container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .holiday-entry {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .holiday-entry h2 {
+        font-size: 1.2em;
+    }
+
+    .holiday-entry p {
+        font-size: 0.9em;
+    }
+
+    #edit_holiday, #delete_holiday {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    #edit_holiday .btn, #delete_holiday .btn {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    #add_holiday .btn {
+        width: 100%;
+        font-size: 1em;
+        padding: 8px 0;
+    }
+}
+
+/* edit form */
+
+#edits, #edit {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#edits form, #edit form {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Lap Swim Page</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lapswim/lapswim.css' %}">
+</head>
+
+<body id="PG-grid">
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Banner Section -->
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff" style="text-align: right; margin-right: 10px;">
+
+            <div id="addJob">
+                <a id="jobDesc" class="custom-link" href="{% url 'aboutus:jobDesc' %}"
+                    style="margin-left: 10px;">Available Jobs</a>
+            </div>
+
+            <div id="user-login">
+                {% if user.is_authenticated %}
+                <div class="user-welcome">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-logout custom-link">Welcome {{ user.username }}</button>
+                    </form>
+                    <a href="{% url 'lapswim:edit_schedule' %}" class="btn custom-link" style="margin-top: 10px;">
+                        Edit Page
+                    </a>
+                </div>
+                {% else %}
+                <a id="login" class="custom-link" href="/login" style="margin-left: 10px;">Staff Log In</a>
+                {% endif %}
+            </div>
+
+            <div id="about-us">
+                <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}" style="margin-left: 10px;">About
+                    Us</a>
+            </div>
+
+            <div id = holiday>
+                <a id="holiday" class="custom-link" href="{% url 'holiday:holiday_view' %}">Holiday Schedule</a>
+            </div>
+
+        </div>
+
+
+    </header>
+
+    <!-- Content Section -->
+    <div class="PG-content">
+        <!-- Title Section -->
+        <div id="title" class="box">
+            <div class="title-box">
+                <h1>LAP SWIMMING</h1>
+                <div id="emergency-anouncement-container">
+                    {% if schedules.first.urgent %}
+                    <h3 id="emergency-anouncement-lap-swim" class="emergency-anouncement">
+                        {{ schedules.first.urgent |linebreaksbr }}
+                    </h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div id="pic" class="box">
+            <img src="/static/lapswim2.png" alt="lapSwim pic" id="lapSwimpic" style=" width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;">
+        </div>
+
+        <div style="@media screen and (min-width: 768px) {
+            .desktop-only {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            }
+        }">
+            <div id="top">
+                <div id="scheduleInfo" class="box">
+                    <h1>Schedule</h1>
+                    <div id="schedule">
+                        <div id="weekdays" class="schedule-card">
+                            <h2>Weekdays</h2>
+                            <p>{{ schedules.first.weekdays_morning }}</p>
+                            <p>{{ schedules.first.weekdays_afternoon }}</p>
+                            <p>{{ schedules.first.weekdays_evening }}</p>
+                        </div>
+                        <div id="weekend" class="schedule-card">
+                            <h2>Weekends</h2>
+                            <p>Saturday: {{ schedules.first.saturday }}</p>
+                            <p>Sunday: {{ schedules.first.sunday }}</p>
+                        </div>
+                        <div id="scheduleNotes" class="schedule-card">
+                            <h2>Schedule Notes</h2>
+                            <p>Short Course: 25 yards</p>
+                            <h3>Short Course Happens: {{ schedules.first.shortCourse_occur }}</h3>
+                            <p>Long Course: 50 meters</p>
+                            <h3>Long Course Happens: {{ schedules.first.longCourse_occur }}</h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="desc" class="box">
+                <h2>Information</h2>
+                <div id="card" class="schedule-card">
+                    <p>{{ schedules.first.info |linebreaksbr }}</p>
+                </div>
+                <h2>Fees</h2>
+                <div id="card" class="schedule-card">
+                    {% if schedules.first.daily_fee %}
+                    <p>Daily Pass: ${{ schedules.first.daily_fee }}/Person</p>
+                    {%endif%}
+
+                    {% if schedules.first.monthly_fee %}
+                    <p>Monthly Pass: ${{ schedules.first.monthly_fee }}/Person</p>
+                    {%endif%}
+
+                    {% if schedules.first.quarterly_fee %}
+                    <p>Quarterly Pass: ${{ schedules.first.quarterly_fee }}/Person</p>
+                    {%endif%}
+
+                    <a id="Register" class="custom-link"
+                        href="https://secure.rec1.com/CA/burlingame-aquatics-ca/catalog">Register Here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div id="foot">
+            <h2>Questions?</h2>
+            <h3>Contact our Front Desk!</h3>
+            <h3>programs@burlingameaquatics.com</h3>
+            <h3>(650) 558 2881</h3>
+        </div>
+    </footer>
+</body>
+
+</html>

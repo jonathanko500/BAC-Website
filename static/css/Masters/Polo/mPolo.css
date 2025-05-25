@@ -1,0 +1,168 @@
+/* Reset some default browser styles */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global styles */
+.PG-content {
+    background-color: #C0C0C0;
+}
+
+#container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#mastersSwimLogo img {
+    max-width: 200px;
+    height: auto;
+}
+
+#info {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Section boxes */
+.section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Schedule Section */
+#schedule {
+    margin-bottom: 40px;
+}
+
+#schedule h2 {
+
+    margin-bottom: 20px;
+}
+
+.schedule-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.schedule-col,
+.schedule-col-2 {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-right: 20px;
+    /* Add margin between schedule boxes */
+}
+
+
+.schedule-col h3,
+.schedule-col h4 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.schedule-col ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+/* Registration Section */
+#reg {
+    margin-bottom: 40px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+#reg h2 {
+
+    margin-bottom: 10px;
+}
+
+#reg a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* Fees Section */
+#fees {
+    margin-bottom: 40px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+#fees h2 {
+    margin-bottom: 10px;
+}
+
+#fees h3 {
+
+    margin-bottom: 10px;
+}
+
+#card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#card h3 {
+
+    margin-bottom: 10px;
+}
+
+/* Info Section for m-WOPO */
+.info-with-pic {
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#mastersPoloPic {
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#mastersPoloPic img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    #ads {
+        flex-direction: column;
+    }
+
+    #info,
+    #ig {
+        flex-basis: 100%;
+        margin-right: 0;
+    }
+}

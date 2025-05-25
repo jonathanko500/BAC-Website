@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Competitive Polo Team Records Page</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agPoloRecord.css' %}">
+
+</head>
+
+<body id="PG-grid">
+
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Banner Section -->
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff" style="text-align: right; margin-right: 10px;">
+
+            <div id="addJob">
+                <a id="jobDesc" class="custom-link" href="{% url 'aboutus:jobDesc' %}"
+                    style="margin-left: 10px;">Available Jobs</a>
+            </div>
+
+            <div id="user-login">
+                {% if user.is_authenticated %}
+                <div class="user-welcome">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-logout custom-link">Welcome {{ user.username }}</button>
+                    </form>
+                </div>
+                {% else %}
+                <a id="login" class="custom-link" href="/login" style="margin-left: 10px;">Staff Log In</a>
+                {% endif %}
+            </div>
+
+            <div id="about-us">
+                <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}" style="margin-left: 10px;">About
+                    Us</a>
+            </div>
+
+        </div>
+
+
+
+    </header>
+
+    <!-- Content Section -->
+    <div class="PG-content" style="background-color: #0056b3;;">
+        <!-- Title Section -->
+        <div id="title" class="box">
+            <h1>BAC Competitive Polo Team Records</h1>
+        </div>
+
+        <div id="view-records">
+            <div id="10u-box" class="section">
+                {% for age_team in age_teams %}
+                {% if age_team.name == '10u' %}
+
+                {% if age_team.name %}
+                <h2>{{ age_team.name }}</h2>
+                {% for record in age_team.agpolo_record_set.all %}
+                <div id="record-box">
+                    <p>Team: {{ record.type_of_team }}</p>
+                    <p>Tournament: {{ record.tournament }}</p>
+                    <p>Placed: {{ record.placement }}</p>
+                    <p>Season: {{ record.season }}</p>
+                    {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'legacy:delete_agPolo_record' record.id %}" class="delete-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <div id="12u-box" class="section">
+                {% for age_team in age_teams %}
+                {% if age_team.name == '12u' %}
+
+                {% if age_team.name %}
+                <h2>{{ age_team.name }}</h2>
+                {% for record in age_team.agpolo_record_set.all %}
+                <div id="record-box">
+                    <p>Team: {{ record.type_of_team }}</p>
+                    <p>Tournament: {{ record.tournament }}</p>
+                    <p>Placed: {{ record.placement }}</p>
+                    <p>Season: {{ record.season }}</p>
+                    {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'legacy:delete_agPolo_record' record.id %}" class="delete-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <div id="14u-box" class="section">
+                {% for age_team in age_teams %}
+                {% if age_team.name == '14u' %}
+
+                {% if age_team.name %}
+                <h2>{{ age_team.name }}</h2>
+                {% for record in age_team.agpolo_record_set.all %}
+                <div id="record-box">
+                    <p>Team: {{ record.type_of_team }}</p>
+                    <p>Tournament: {{ record.tournament }}</p>
+                    <p>Placed: {{ record.placement }}</p>
+                    <p>Season: {{ record.season }}</p>
+                    {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'legacy:delete_agPolo_record' record.id %}" class="delete-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <div id="16u-box" class="section">
+                {% for age_team in age_teams %}
+                {% if age_team.name == '16u' %}
+
+                {% if age_team.name %}
+                <h2>{{ age_team.name }}</h2>
+                {% for record in age_team.agpolo_record_set.all %}
+                <div id="record-box">
+                    <p>Team: {{ record.type_of_team }}</p>
+                    <p>Tournament: {{ record.tournament }}</p>
+                    <p>Placed: {{ record.placement }}</p>
+                    <p>Season: {{ record.season }}</p>
+                    {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'legacy:delete_agPolo_record' record.id %}" class="delete-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            <div id="18u-box" class="section">
+                {% for age_team in age_teams %}
+                {% if age_team.name == '18u' %}
+
+                {% if age_team.name %}
+                <h2>{{ age_team.name }}</h2>
+                {% for record in age_team.agpolo_record_set.all %}
+                <div id="record-box">
+                    <p>Team: {{ record.type_of_team }}</p>
+                    <p>Tournament: {{ record.tournament }}</p>
+                    <p>Placed: {{ record.placement }}</p>
+                    <p>Season: {{ record.season }}</p>
+                    {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'legacy:delete_agPolo_record' record.id %}" class="delete-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        {% if user.is_authenticated %}
+        <div id="add-records" class="box">
+            <form id="add-poloRecord-form" method="post" enctype="multipart/form-data"
+                action="{% url 'legacy:add_agPolo_records' %}">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="age_of_team">Age of Team:</label>
+                    <select id="age_of_team" name="age_of_team">
+                        <option value="10u">10u</option>
+                        <option value="12u">12u</option>
+                        <option value="14u">14u</option>
+                        <option value="16u">16u</option>
+                        <option value="18u">18u</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="type_of_team">Type of Team:</label>
+                    <input type="text" id="type_of_team" name="type_of_team"><br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="tournament">Tournament:</label>
+                    <input type="text" id="tournament" name="tournament"><br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="placement">Placement:</label>
+                    <input type="text" id="placement" name="placement"><br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="season">Season:</label>
+                    <input type="text" id="season" name="season"><br><br>
+                </div>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div id="foot">
+            <h2>Questions?</h2>
+            <h3>Contact our Head Coach: Sara McGuire!</h3>
+            <h3>smcguire@burlingameaquatics.com</h3>
+            <h3>(925) 414 1629</h3>
+        </div>
+    </footer>
+
+</body>
+
+</html>

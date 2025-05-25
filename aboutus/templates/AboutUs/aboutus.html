@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC About Us Page</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/AboutUs/aboutus.css' %}">
+</head>
+
+<body id="PG-grid">
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Banner Section -->
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff" style="text-align: right; margin-right: 10px;">
+
+            <div id="addJob">
+                <a id="jobDesc" class="custom-link" href="{% url 'aboutus:jobDesc' %}">Available Jobs</a>
+            </div>
+
+            <div id="user-login">
+                {% if user.is_authenticated %}
+                <div class="user-welcome">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-logout custom-link">Welcome {{ user.username }}</button>
+                        <a href="{% url 'aboutus:edit_aboutus' %}" class="btn custom-link">Edit Page</a>
+                    </form>
+                </div>
+                {% else %}
+                <a id="login" class="custom-link" href="/login">Staff Log In</a>
+                {% endif %}
+            </div>
+
+            <div id="holiday">
+                <a id="holiday" class="custom-link" href="{% url 'holiday:holiday_view' %}">Holiday Schedule</a>
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="PG-content">
+        <!-- Title Section -->
+        <div id="title" class="box">
+            <h1>About Us</h1>
+        </div>
+
+        <!-- THIS IS BAC -->
+        <div id="desc-box" class="box">
+            <p class="text-container">
+                {{ change.first.description }}
+            </p>
+        </div>
+
+        <section id='Team'>
+            <div class="grid">
+                <!-- AQUATIC DIRECTOR -->
+                <div class="grid-item">
+                    <div id="ad-title">
+                        <h2>Aquatic Director</h2>
+                        {% if change.first.AD_name %}
+                        <h2>{{ change.first.AD_name }}</h2>
+                        {% endif %}
+                    </div>
+
+
+                    {% if change.first.AD_pic %}
+                    <img src="{{ change.first.AD_pic.url }}" alt="Aquatic Director Picture" class="AD-img">
+                    {% else %}
+                    <img src="{% static 'defaultProfile.JPEG' %}" alt="Aquatic Director Picture" class="AD-img">
+                    {% endif %}
+
+
+                    <p>{{ change.first.AD_desc }}</p>
+                </div>
+
+                <!-- PROGRAM COORDINATOR -->
+                <div class="grid-item">
+
+                    <div id="pc-title">
+                        <h2>Program Coordinator</h2>
+                        {% if change.first.PC_name %}
+                        <h2>{{ change.first.PC_name }}</h2>
+                        {% endif %}
+                    </div>
+
+                    {% if change.first.PC_pic %}
+                    <img src="{{ change.first.PC_pic.url }}" alt="Program Coordinator Picture" class="PC-img">
+                    {% else %}
+                    <img src="{% static 'defaultProfile.jpg' %}" alt="Program Coordinator Picture" class="PC-img">
+                    {% endif %}
+
+                    <p>{{ change.first.PC_desc }}</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <div id="foot">
+            <h2>Questions?</h2>
+            <h3>Contact our Front Desk!</h3>
+            <h3>programs@burlingameaquatics.com</h3>
+            <h3>(650)-558-2881</h3>
+        </div>
+    </div>
+</body>
+
+</html>

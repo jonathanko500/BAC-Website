@@ -1,0 +1,64 @@
+/* Container for Instagram and Slideshow */
+#picture {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: flex-start;
+    /* Align items to the top */
+    flex-wrap: wrap;
+    /* Allow wrapping for smaller screens */
+    padding: 30px;
+}
+
+/* Instagram Embed Styling */
+#ig {
+    flex: 1;
+    /* Allow it to grow and shrink */
+    max-width: 600px;
+    min-width: 350px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    /* Center Instagram embed horizontally */
+}
+
+.instagram-media {
+    background: #FFF;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 0 2px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    /* Ensure the embed fills the container */
+}
+
+/* Slideshow Styling */
+#slideshow {
+    flex: 1;
+    max-width: 600px;
+    min-width: 350px;
+    text-align: center;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
+}
+
+/* Center the image inside the slideshow */
+#slideshow img {
+    max-width: 100%;
+    max-height: 500px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+    /* Ensure the image behaves as a block element */
+    margin: 0 auto;
+    /* Center the image horizontally */
+}

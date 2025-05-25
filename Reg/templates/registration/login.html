@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Members/login.css' %}">
+</head>
+
+<body id="PG-grid">
+
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Banner Section -->
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff">
+            {% if user.is_authenticated %}
+            <div class="user-welcome">
+                <form method="post" action="{% url 'logout' %}" class="logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-logout custom-link">
+                        Welcome {{ user.username }}
+                    </button>
+                </form>
+            </div>
+            {% else %}
+            <a id="login" class="custom-link" href="/login">Staff Log In</a>
+            {% endif %}
+        </div>
+
+    </header>
+
+    <div class="PG-content">
+
+        <div class="container">
+            <H1>THIS PAGE IS FOR BAC STAFF ONLY</H1>
+            <div>
+                <h2>Staff Links</h2>
+                <div class="icons-wrapper">
+                    <a href="https://www.digiquatics.com/login" id="digiquatics">
+                        <img src="/static/digiquatics.png" alt="digiquatics" class="icon">
+                    </a>
+
+                    <a href="https://online.adp.com/signin/v1/?APPID=RDBX&productId=80e309c3-70c6-bae1-e053-3505430b5495&returnURL=https://my.adp.com/&callingAppId=RDBX&TARGET=-SM-https://my.adp.com/static/redbox/"
+                        id="adp" class="icon">
+                        <img src="/static/adp.png" alt="adp">
+                    </a>
+
+                    <a href="https://secure.rec1.com/account/login" id="adp" class="icon">
+                        <img src="/static/civicrec.png" alt="adp">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Login Form Section -->
+
+        {%block content%}
+        <form method="POST" class="form-group">
+            <h2>BAC Staff Admin</h2>
+            {%csrf_token%}
+            {{form}}
+            <p>Create an account: <a href="/register">Here</a></p>
+            <button type="submit" class="btn btn-success">Login</button>
+        </form>
+        {%endblock%}
+
+
+
+    </div>
+
+</body>
+
+</html>

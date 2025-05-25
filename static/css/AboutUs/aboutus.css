@@ -1,0 +1,86 @@
+/* Default styles for larger screens */
+.PG-content {
+    background-color: #C0C0C0;
+}
+
+/* Center the text within desc-box and set its width to 50% */
+#desc-box {
+    text-align: center;
+}
+
+#desc-box p.text-container {
+    display: inline-block;
+    width: 65%;
+    text-align: left;
+    line-height: 1.5;
+}
+
+/* CSS for the grid container */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 100px;
+}
+
+/* CSS for each grid item */
+.grid-item {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: left;
+}
+
+/* Style headings */
+.grid-item h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style subheadings */
+.grid-item h4 {
+    margin-bottom: 5px;
+}
+
+/* Style images */
+.grid-item img {
+    max-width: 100%;
+    border-radius: 0;
+}
+
+/* Style paragraphs */
+.grid-item p {
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+/* Center content within text-container */
+.text-container {
+    text-align: center;
+}
+
+.AD-img,
+.PC-img {
+    width: 60%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#ad-title,
+#pc-title {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Media query for smaller screens (e.g., tablets and mobile devices) */
+@media screen and (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #desc-box p.text-container {
+        width: 100%;
+    }
+}

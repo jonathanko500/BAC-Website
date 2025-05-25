@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Swim Lessons Description</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lessons/lessonInfo2.css' %}"><!-- for the page -->
+    <link rel="stylesheet" href="{% static 'css/lessons/lessonDetail.css' %}"><!-- for the swim lesson info -->
+</head>
+
+<body id="PG-grid">
+
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="{% static 'BAC.png' %}" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff" style="text-align: right; margin-right: 10px;">
+
+            <div id="addJob">
+                <a id="jobDesc" class="custom-link" href="{% url 'aboutus:jobDesc' %}" style="margin-left: 10px;">Available Jobs</a>
+            </div>
+        
+            <div id="user-login">
+                {% if user.is_authenticated %}
+                <div class="user-welcome">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-logout custom-link">Welcome {{ user.username }}</button>
+                    </form>
+                    <a href="{% url 'lessons:edit_lessonInfo' %}" class="btn custom-link" style="margin-left: 10px;">Edit Page</a>
+                </div>
+                {% else %}
+                <a id="login" class="custom-link" href="/login" style="margin-left: 10px;">Staff Log In</a>
+                {% endif %}
+            </div>
+        
+            <div id="about-us">
+                <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}" style="margin-left: 10px;">About Us</a>
+            </div>
+        
+        </div>
+        
+
+    </header>
+
+    <div class="PG-content">
+        <div id="title" class="box" style="width: 100%;">
+            <h1>SWIM LESSONS DESCRIPTIONS</h1>
+            <div id="emergency-anouncement-container">
+                {% if schedules.first.urgent %}
+                <h3 id="emergency-anouncement-group-details" class="emergency-anouncement" style="color:red">
+                    {{ schedules.first.urgent|linebreaksbr }}
+                </h3>
+                {% endif %}
+            </div>
+        </div>
+
+        <div id="info">
+
+            <div class="container">
+                <div id="lesson-info">
+                    {% for lesson in info %}
+                    <div class="lesson-detail">
+                        <p>Name of Group: {{ lesson.name }}</p>
+                        <p>Ages: {{ lesson.ages }}</p>
+                        <p>Swimmer/Instructor Ratio: {{ lesson.instructor_swimmer_ratio }}/1</p>
+                        <h4>{{ lesson.description|linebreaksbr }}</h4>
+                        <div class="benchmarks">
+                            {% if lesson.benchmark1_name %}
+                            <div id="b1" class="b-card">
+                                <h3>{{ lesson.benchmark1_name }}</h3>
+                                <ul>
+                                    {% for item in lesson.get_benchmark1_info_as_list %}
+                                    <li>{{ item }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% if lesson.picture1 %}
+                                <img src="{{ lesson.picture1.url }}" alt="Picture for Benchmark 1"
+                                    style="width:100px; height:auto;">
+                                {% endif %}
+                            </div>
+                            {% endif %}
+
+                            {% if lesson.benchmark2_name %}
+                            <div id="b2" class="b-card">
+                                <h3>{{ lesson.benchmark2_name }}</h3>
+                                <ul>
+                                    {% for item in lesson.get_benchmark2_info_as_list %}
+                                    <li>{{ item }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% if lesson.picture2 %}
+                                <img src="{{ lesson.picture2.url }}" alt="Picture for Benchmark 2"
+                                    style="width:100px; height:auto;">
+                                {% endif %}
+                            </div>
+                            {% endif %}
+
+                            {% if lesson.benchmark3_name %}
+                            <div id="b3" class="b-card">
+                                <h3>{{ lesson.benchmark3_name }}</h3>
+                                <ul>
+                                    {% for item in lesson.get_benchmark3_info_as_list %}
+                                    <li>{{ item }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% if lesson.picture3 %}
+                                <img src="{{ lesson.picture3.url }}" alt="Picture for Benchmark 3"
+                                    style="width:100px; height:auto;">
+                                {% endif %}
+                            </div>
+                            {% endif %}
+
+                            {% if lesson.benchmark4_name %}
+                            <div id="b4" class="b-card">
+                                <h3>{{ lesson.benchmark4_name }}</h3>
+                                <ul>
+                                    {% for item in lesson.get_benchmark4_info_as_list %}
+                                    <li>{{ item }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% if lesson.picture4 %}
+                                <img src="{{ lesson.picture4.url }}" alt="Picture for Benchmark 4"
+                                    style="width:100px; height:auto;">
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div id="add-button">
+                            {% if user.is_authenticated %}
+                            <form action="{% url 'lessons:delete-lesson-info' lesson.pk %}" method="post">
+                                {% csrf_token %}
+                                <input type="submit" value="Delete" class="custom-link"
+                                    onclick="return confirm('Are you sure you want to delete this lesson?');">
+                            </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div id="add-button">
+                    {% if user.is_authenticated %}
+                    <a id="lesson" class="custom-link" href="{% url 'lessons:add_lessonInfo' %}">Add Swim Lessons</a>
+                    {% endif %}
+                </div>
+            </div>
+            <!-- reg -->
+            <div class="container">
+                <div id="reg">
+                    <h2>REGISTRATION</h2>
+                    <h3>To register for our classes, please follow these steps:</h3>
+                    <div>
+                        {% if schedules.first.registration_info %}
+                        <ol>
+                            {% for point in schedules.first.get_reg_info_as_list %}
+                            <li>{{ point }}</li>
+                            {% endfor %}
+                        </ol>
+                        {% endif %}
+                        <a id="Register" class="custom-link"
+                            href="https://secure.rec1.com/CA/burlingame-aquatics-ca/catalog">Register Here!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div id="foot">
+            <h2>Questions?</h2>
+            <h3>Contact our Front Desk!</h3>
+            <h3>programs@burlingameaquatics.com</h3>
+            <h3>(650) 558 2881</h3>
+        </div>
+    </footer>
+</body>
+
+</html>

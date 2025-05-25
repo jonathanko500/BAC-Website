@@ -1,0 +1,997 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$QIB8jQ7rzCKHOJ17AqnPTe$aC/K8syOf9+WDQJs/flwPzY/+S3Hvillismo1lNFLUg=",
+    "last_login": "2023-09-11T04:45:20.291Z",
+    "is_superuser": true,
+    "username": "adminBAC",
+    "first_name": "",
+    "last_name": "",
+    "email": "test@test.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-09-04T05:25:34.394Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$XmlihOODQh4wlOoftpp4Ku$7PnrcMc5IEzxHIAkJWQa5SRtpb1JgatgQc7lRQyLl7s=",
+    "last_login": "2023-09-07T22:01:00.508Z",
+    "is_superuser": false,
+    "username": "mark",
+    "first_name": "",
+    "last_name": "",
+    "email": "mark@burlingameaquatics.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-09-05T09:41:57.192Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$rhg7pEYRydflTi9VkvJC4o$CbW/hg3KouZG1QX8VPnwF4nhcuKNAmIyGC4O2UvlKNg=",
+    "last_login": "2023-09-15T20:41:23.234Z",
+    "is_superuser": false,
+    "username": "kk",
+    "first_name": "",
+    "last_name": "",
+    "email": "mark@burlingameaquatics.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-09-15T20:41:22.814Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$97L08LxYyXGwXvWUUxayNo$EgURmt+pxpjktxDLJ4UnGIrFcs/GRJ370lhTLxyVZZk=",
+    "last_login": "2023-09-15T21:51:46.815Z",
+    "is_superuser": false,
+    "username": "mk",
+    "first_name": "",
+    "last_name": "",
+    "email": "mark@burlingameaquatics.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-09-15T21:51:46.522Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$HGP2TjdcDPXvrkqLdVEeQ6$MDmJA8gRjrFiCMde0e4mjshoE0HCzBeRPgGhBwITwVw=",
+    "last_login": "2023-09-15T22:27:54.031Z",
+    "is_superuser": false,
+    "username": "kkkk",
+    "first_name": "",
+    "last_name": "",
+    "email": "mark@burlingameaquatics.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-09-15T22:13:44.336Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1m7zwaaqv58l9h5up3yfthryhwo5huoy",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGUAgGP3v0GsssuUjWQlPbU-O-2SQ96m8x7M5uIsC4lrp3nOJG4Cisuvx1CenE9AD2hPppMrS7zhPJQ5Em7vDfi9-10_w4K9LKvdbZgbVJoOanMPo_Gk05IMKL2xoA2CsCZQIP3SJzCnhlzZnJ5CE58vggvOP0:1qhHHj:gP6gwn0IGtx3qAHhPQK_QONJRLdLIRLvJwx7gM-N_a8",
+    "expire_date": "2023-09-29T22:27:35.519Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3b0z4087lpdtdauwk1zknz1ezwigqjg0",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pChwBRcuvcMhIFBqoYmpV0Z765NutDtf-_9lwhxW2vYOi9hyuIslDj9bhTTg9sO8j222yzT3NZlIrkr8qBdXufMz8vh_h3U2Ou39h6UM9pZo1AzKAAgzsmjwrEU8BptyoMjH72xztAQkcbCmoAMWXTi_QGo4Tbo:1qdHgG:P4edC_h9P1mXXhHxB3UnV8r88n7KKvAGQwAT_ewaAt8",
+    "expire_date": "2023-09-18T22:04:24.654Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3d9ccag4oxriaqs67gn50u98px9yc0km",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pChwBRcuvcMhIFBqoYmpV0Z765NutDtf-_9lwhxW2vYOi9hyuIslDj9bhTTg9sO8j222yzT3NZlIrkr8qBdXufMz8vh_h3U2Ou39h6UM9pZo1AzKAAgzsmjwrEU8BptyoMjH72xztAQkcbCmoAMWXTi_QGo4Tbo:1qe7AG:cb5VXm2zQ2J9UOQq8LCICO0aZK4Ft9S7z68lvncH-Qs",
+    "expire_date": "2023-09-21T05:02:48.980Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4k25386lx5yfhn2hkj3nyodjljy8zsv8",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGUAgGP3v0GsssuUjWQlPbU-O-2SQ96m8x7M5uIsC4lrp3nOJG4Cisuvx1CenE9AD2hPppMrS7zhPJQ5Em7vDfi9-10_w4K9LKvdbZgbVJoOanMPo_Gk05IMKL2xoA2CsCZQIP3SJzCnhlzZnJ5CE58vggvOP0:1qhH86:qhvKkZWIBv731nv33XOss72PUqXqxJLYfssDhAmw7Mw",
+    "expire_date": "2023-09-29T22:17:38.465Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "53z42djw4dy91q8uq2n7fh5ns3g249d6",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGUAgGP3v0GsssuUjWQlPbU-O-2SQ96m8x7M5uIsC4lrp3nOJG4Cisuvx1CenE9AD2hPppMrS7zhPJQ5Em7vDfi9-10_w4K9LKvdbZgbVJoOanMPo_Gk05IMKL2xoA2CsCZQIP3SJzCnhlzZnJ5CE58vggvOP0:1qhHGy:ZDxc96JoH9JrfVVfdSd15sMQIetD0dbXcoCJIzMtg2c",
+    "expire_date": "2023-09-29T22:26:48.763Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ahdwa68vuarijp2gwp5fsvrrbz6av92e",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pChwBRcuvcMhIFBqoYmpV0Z765NutDtf-_9lwhxW2vYOi9hyuIslDj9bhTTg9sO8j222yzT3NZlIrkr8qBdXufMz8vh_h3U2Ou39h6UM9pZo1AzKAAgzsmjwrEU8BptyoMjH72xztAQkcbCmoAMWXTi_QGo4Tbo:1qfYnY:vkOyPOIZlQ-NFzHWfEMPgI_NPb9IP258a0mMAE5zYkM",
+    "expire_date": "2023-09-25T04:45:20.295Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ar1941q1r2w944mk3wgytry5l5ppum5h",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pChwBRcuvcMhIFBqoYmpV0Z765NutDtf-_9lwhxW2vYOi9hyuIslDj9bhTTg9sO8j222yzT3NZlIrkr8qBdXufMz8vh_h3U2Ou39h6UM9pZo1AzKAAgzsmjwrEU8BptyoMjH72xztAQkcbCmoAMWXTi_QGo4Tbo:1qe8dP:lV_NMPRqRu-H9ibL8YWc2fPcobggzT16mKMKKMLvWiU",
+    "expire_date": "2023-09-21T06:36:59.560Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "b48ws12jfp9oyq2o90drmeqi531k70ts",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSHgIA-X7vsNzcAMUjWQlHZl_HdD0oVu7znnvsWM-1bmvfM6LySuAsTpd4uYnlwHoAfWe5Op1W1dohyKPGiXUyN-3Q7376BgL6N2TCZgUCFZrwDOlAEyuQheJ8vZMGvNjGydC5y1dhYdKrqwBQ_KiM8X9Uw4FQ:1qhFcx:Qo27wv8U9VU4HtNA0Wc6PuibRenB7HV7kIChQcoXE3o",
+    "expire_date": "2023-09-29T20:41:23.237Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "eggupi4tcq2k1ek0p0bwkofzfsvyi7sy",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGUAgGP3v0GsssuUjWQlPbU-O-2SQ96m8x7M5uIsC4lrp3nOJG4Cisuvx1CenE9AD2hPppMrS7zhPJQ5Em7vDfi9-10_w4K9LKvdbZgbVJoOanMPo_Gk05IMKL2xoA2CsCZQIP3SJzCnhlzZnJ5CE58vggvOP0:1qhHAU:1VKXKiZxsOAdk9pAyGUqicOxcDgzE3gmQWam1u3AM08",
+    "expire_date": "2023-09-29T22:20:06.493Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fl3w9traz90h0i5gvvu8za7afdrfpntz",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGUAgGP3v0GsssuUjWQlPbU-O-2SQ96m8x7M5uIsC4lrp3nOJG4Cisuvx1CenE9AD2hPppMrS7zhPJQ5Em7vDfi9-10_w4K9LKvdbZgbVJoOanMPo_Gk05IMKL2xoA2CsCZQIP3SJzCnhlzZnJ5CE58vggvOP0:1qhHI2:bzPDxgFObxLk1mP0tSF73te2ccfKnFi8_3Qli0Wiab0",
+    "expire_date": "2023-09-29T22:27:54.033Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "g3lz449fuctrr15umbho4olfzn54m5yw",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlmLfwuU9DmDtbu2cQA5UpxUiLtDpBTQvpl5LxVpXWpce57jmNRFGXX43ZjkkdsG0p3abdIytWUeWW-K3mnXw5Ty87q7fweVev3WgIG8K4aJLYDF7NEZF47iufh88kwGEMCcpQBICUHIOusQbAooLOr9AcdrN1I:1qdd0U:x2YbEs9kiYFBIT83CBavK2na3_scuuWRtEvfCd-MD7o",
+    "expire_date": "2023-09-19T20:50:42.559Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hvcdvnzhfjpb6v6jmf17115umub0wv5v",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pChwBRcuvcMhIFBqoYmpV0Z765NutDtf-_9lwhxW2vYOi9hyuIslDj9bhTTg9sO8j222yzT3NZlIrkr8qBdXufMz8vh_h3U2Ou39h6UM9pZo1AzKAAgzsmjwrEU8BptyoMjH72xztAQkcbCmoAMWXTi_QGo4Tbo:1qd2C1:az1_0ds_wPX6GiX_jEqQv_QCCJGK2uBlgKjBjL0VeoI",
+    "expire_date": "2023-09-18T05:32:09.489Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jjxxbqtpzi2s976gqw5st8uzstxa70ie",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pChwBRcuvcMhIFBqoYmpV0Z765NutDtf-_9lwhxW2vYOi9hyuIslDj9bhTTg9sO8j222yzT3NZlIrkr8qBdXufMz8vh_h3U2Ou39h6UM9pZo1AzKAAgzsmjwrEU8BptyoMjH72xztAQkcbCmoAMWXTi_QGo4Tbo:1qdNre:qJ55Zzy3BwRFVMbpmaA5ZC6GTqliEe-OJjCPs2UAIZg",
+    "expire_date": "2023-09-19T04:40:34.606Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "o2sj71af84ew5svyivhqd7zrqkya8p02",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGUAgGP3v0GsssuUjWQlPbU-O-2SQ96m8x7M5uIsC4lrp3nOJG4Cisuvx1CenE9AD2hPppMrS7zhPJQ5Em7vDfi9-10_w4K9LKvdbZgbVJoOanMPo_Gk05IMKL2xoA2CsCZQIP3SJzCnhlzZnJ5CE58vggvOP0:1qhH4K:rWYQnA3Yn-ALwDmqCBV8zMI5ci0NZgAPmzCGoIiuKBU",
+    "expire_date": "2023-09-29T22:13:44.712Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rhdq995wv37tnrmsckzg3xdnwp8j1lqq",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pChwBRcuvcMhIFBqoYmpV0Z765NutDtf-_9lwhxW2vYOi9hyuIslDj9bhTTg9sO8j222yzT3NZlIrkr8qBdXufMz8vh_h3U2Ou39h6UM9pZo1AzKAAgzsmjwrEU8BptyoMjH72xztAQkcbCmoAMWXTi_QGo4Tbo:1qdMfy:4R2yyFGzCYyT5h7o239y8S9lxzMlcADu9BEjBVyKuU0",
+    "expire_date": "2023-09-19T03:24:26.931Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "teggds0tfw62u7dkn2ihpuxr93wigsus",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCkOIBL956hmRkGqRpISrsy3l2bdKHb_977LzXiupRx7TKPU1Jn5dThdyPkh9QNpDvWW9Pc6jJPpDdF77Tra0vyvOzu30HBXr41egiZnUfjCNPg2UIGyhLIUyQGd0zOMsToDZ-CNVYEyPMQWYxxUdT7A_yEOEI:1qhGj4:cFyQ6MIBhtozoIj2jYqvlTTE07PB5MIZcnK7pN6PVng",
+    "expire_date": "2023-09-29T21:51:46.817Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "tystli0a3fj5g90g7bpjzqunbg6tnxnu",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pChwBRcuvcMhIFBqoYmpV0Z765NutDtf-_9lwhxW2vYOi9hyuIslDj9bhTTg9sO8j222yzT3NZlIrkr8qBdXufMz8vh_h3U2Ou39h6UM9pZo1AzKAAgzsmjwrEU8BptyoMjH72xztAQkcbCmoAMWXTi_QGo4Tbo:1qd25m:Tyf3_ey2Hd-gZdZQECTk6wKDnmV4u_24vc-L4RteaFI",
+    "expire_date": "2023-09-18T05:25:42.748Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "u8cnn2ajo7ubjffajbqaw7ln8je9b1mq",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pChwBRcuvcMhIFBqoYmpV0Z765NutDtf-_9lwhxW2vYOi9hyuIslDj9bhTTg9sO8j222yzT3NZlIrkr8qBdXufMz8vh_h3U2Ou39h6UM9pZo1AzKAAgzsmjwrEU8BptyoMjH72xztAQkcbCmoAMWXTi_QGo4Tbo:1qfXqb:kN3XrYS1-K8a0q2PTImR35CFU0AhbyIHChlno0R9FNY",
+    "expire_date": "2023-09-25T03:44:25.673Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "v0d2po36ovati1836a98c4wxxgr4mgz8",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlmLfwuU9DmDtbu2cQA5UpxUiLtDpBTQvpl5LxVpXWpce57jmNRFGXX43ZjkkdsG0p3abdIytWUeWW-K3mnXw5Ty87q7fweVev3WgIG8K4aJLYDF7NEZF47iufh88kwGEMCcpQBICUHIOusQbAooLOr9AcdrN1I:1qeN3c:3X-znJAXInXFEfjXUoSQA_2sergmN5TQTsCh1F6ltrY",
+    "expire_date": "2023-09-21T22:01:00.515Z"
+  }
+},
+{
+  "model": "Lapswim.schedule",
+  "pk": 1,
+  "fields": {
+    "urgent": "THIS IS NOT MASTERS SWIMMING",
+    "weekdays_morning": "5:30 AM - 8:15 AM",
+    "weekdays_afternoon": "11:00 AM - 1:00 PM",
+    "weekdays_evening": "8:00 PM - 9:00 PM",
+    "weekends": "7 AM - 4 PM",
+    "shortCourse_occur": "Monday Afternoon - Saturday",
+    "longCourse_occur": "Sunday - Monday Morning",
+    "info": "Lap swimming is open to all participants 13 yrs+ interested in swimming for fitness.\r\n\r\n\r\n\r\n\r\nNo more reservations required! Either buy your pass online through our CivicRec site or in\r\n                        person at the pool!\r\n\r\n\r\n\r\n\r\n(NOTE: When there 2+ swimmers per lane, swimmers must \"circle swim\" by swimming down the right\r\n                        side of the lane at all times - like driving in the USA)",
+    "daily_fee": "8.00",
+    "monthly_fee": "80.00",
+    "quarterly_fee": "200.00"
+  }
+},
+{
+  "model": "Recswim.schedule",
+  "pk": 1,
+  "fields": {
+    "urgent": "",
+    "info": "Our recreational swim is open to swimmers of all ages for Burlingame and non-Burlingame\r\n                                residents alike!\r\n\r\n\r\nParticipants are welcome to bring balls, floats, and other toys (excluding water guns,\r\n                                launchers, etc.) to use to have fun in the pool!\r\n\r\n\r\n\r\nWe ask that non-potty trained children wear a swim diaper to keep our pool nice and\r\n                                clean!",
+    "weekdays": null,
+    "weekdays_timeframe": null,
+    "weekends": "Saturday + Sunday",
+    "weekends_timeframe": "1:00 PM - 4:00 PM",
+    "daily_fee": "8.00"
+  }
+},
+{
+  "model": "AquaAerobic.schedule",
+  "pk": 1,
+  "fields": {
+    "urgent": "",
+    "days": "Monday/Wednesday",
+    "timeframe": "12:00 PM - 1:00 PM",
+    "info": "Water aerobics classes are a great way to exercise, meet new friends, and change up your\r\n                            regular routine. Our dedicated aquatic fitness staff teaches to every experience level.\r\n                            And, our slate of Aqua Fitness programs covers a wide range of skills and needs,\r\n                            with paces and class formats that vary depending on the program you select.\r\n\r\n\r\n\r\n                            Join us for a great late morning break! This medium-to-high intensity aerobics class uses\r\n                            bands, water weights, and noodles for cardiovascular (aerobic) exercise,\r\n                            as well as strength training, toning, and stretching.",
+    "daily_fee": "12.00"
+  }
+},
+{
+  "model": "Lessons.schedule",
+  "pk": 1,
+  "fields": {
+    "urgent": "This is urgent information",
+    "lesson_rate": "120 for 4 sessions",
+    "lesson_length": "1 session is 30 minutes",
+    "preschool": "3/1",
+    "barracuda": "4/1",
+    "philosophy": "Our swim lesson program starts with safety and comfort in the water,\r\n                        giving each swimmer, of all ages, a strong foundation of skills that support development\r\n                        into a competent or even competitive-level swimmer and foster a love of swimming that will last\r\n                        a\r\n                        lifetime.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n   We provide Private Lessons for those who seek the extra guidance.",
+    "registration_info": "<p>\r\n                        To register for our classes, please follow these steps:\r\n                    </p>\r\n                    <ol>\r\n                        <li>Review the Class Descriptions on the page you will find at the link below to identify the\r\n                            level(s) best for you and your family\r\n                        </li>\r\n                        <li>Select the best dates/times for the level(s) you need; note the activity numbers for the\r\n                            classes that you have selected\r\n                        </li>\r\n                        <li>Create an account with CivicRec if you need to! This will be where you see available\r\n                            classes,\r\n                            waitlists, add family members, and can make payments.\r\n                        </li>\r\n                        <li>Use the links on the schedule pages to connect to our registration system, using the\r\n                            activity\r\n                            numbers to locate your desired classes\r\n                        </li>\r\n                    </ol>",
+    "waitlist_info": "<ul>\r\n                        <li>\r\n                            <h4>IF YOUR LESSON IS FULL, MAKE SURE TO ENROLL INTO THE WAIT LIST! We often make new\r\n                                classes\r\n                                with long waitlists on them so don't miss out!</h4>\r\n                        </li>\r\n                        <li>\r\n                            <h4>If you would like to sign up for classes AFTER the start date, you can do so until 10 PM\r\n                                on\r\n                                the day of the second class</h4>\r\n                            <h5>(i.e. M/W classes, registration will close the first Wednesday of the session at 10 PM)\r\n                            </h5>\r\n                            <h4>HOWEVER you will still be responsible for paying the FULL amount of the class. This is\r\n                                to\r\n                                support the cost of our staff and pool upkeep and we CANNOT give credits or refunds for\r\n                                classes\r\n                                missed due to late registration.</h4>\r\n                        </li>\r\n                    </ul>",
+    "policy": "<p>\r\n                        If you wish to cancel a group lesson, you must do so 24 hours before the start of the first\r\n                        class\r\n                        to receive a full refund. After a class has begun, refunds and credits will not be given.\r\n                        Make-ups are not available for missed classes.\r\n                    </p>\r\n                    <p>\r\n                        Lessons are held rain or shine, although they will be canceled if there is thunder and/or\r\n                        lightning. We reserve the right to cancel or postpone any program or activity due to low\r\n                        enrollment.\r\n                    </p>"
+  }
+},
+{
+  "model": "Lessons.groupdetailschedule",
+  "pk": 1,
+  "fields": {
+    "urgent": "go join swim team",
+    "small_pool_one_name": "Parent & Me",
+    "small_pool_one_age": "Ages: 3/Under",
+    "small_pool_one_description": "This is Parent and Me",
+    "small_pool_two_name": null,
+    "small_pool_two_age": null,
+    "small_pool_two_description": "",
+    "small_pool_three_name": null,
+    "small_pool_three_age": null,
+    "small_pool_three_description": "",
+    "small_pool_four_name": null,
+    "small_pool_four_age": null,
+    "small_pool_four_description": "",
+    "small_pool_five_name": null,
+    "small_pool_five_age": null,
+    "small_pool_five_description": "",
+    "small_pool_six_name": null,
+    "small_pool_six_age": null,
+    "small_pool_six_description": "",
+    "big_pool_one_name": "Barracuda 1",
+    "big_pool_one_age": "Ages: 5 - 12",
+    "big_pool_one_description": "This is Barracuda 1",
+    "big_pool_two_name": null,
+    "big_pool_two_age": null,
+    "big_pool_two_description": "",
+    "big_pool_three_name": null,
+    "big_pool_three_age": null,
+    "big_pool_three_description": "",
+    "big_pool_four_name": null,
+    "big_pool_four_age": null,
+    "big_pool_four_description": "",
+    "big_pool_five_name": null,
+    "big_pool_five_age": null,
+    "big_pool_five_description": "",
+    "big_pool_six_name": null,
+    "big_pool_six_age": null,
+    "big_pool_six_description": "",
+    "big_pool_seven_name": null,
+    "big_pool_seven_age": null,
+    "big_pool_seven_description": "",
+    "big_pool_eight_name": null,
+    "big_pool_eight_age": null,
+    "big_pool_eight_description": "",
+    "registration_info": "<li>Review the Class Descriptions on the page you will find at the link below to identify\r\n                                the level(s) best for you and your family</li>\r\n                            <li>Select the best dates/times for the level(s) you need; note the activity numbers for the\r\n                                classes that you have selected</li>\r\n                            <li>Create an account with CivicRec if you need to! This will be where you see available\r\n                                classes, waitlists, add family members, and can make payments.</li>\r\n                            <li>Use the links on the schedule pages to connect to our registration system, using the\r\n                                activity numbers to locate your desired classes</li>"
+  }
+},
+{
+  "model": "Lessons.privateschedule",
+  "pk": 1,
+  "fields": {
+    "urgent": "Urgent announcement goes here",
+    "lesson1_name": "Private Swim Lessons",
+    "lesson1_age": "ALL AGES: Adult & Youth",
+    "lesson1_description": "Private Lessons are held in a 1 to 1 ratio of instructor to student. Students come in\r\n                        with a stated level and work with the instructor to improve their skills.\r\n                    Private lesson sessions are 30 minutes and cost $60 per session.",
+    "lesson2_name": "Semi-Private Swim Lessons",
+    "lesson2_age": "ALL AGES: Adult & Youth",
+    "lesson2_description": ">Semi-Private Lessons are held in a 1 to 2 ratio of instructor to students. Lessons are\r\n                        tailored to the specific needs of the students and create a fun learning environment.\r\n\r\n                    Semi-Private lesson sessions are 30 minutes and cost $80 per session.",
+    "philosophy_heading": "OUR TEACHING PHILOSOPHY",
+    "philosophy_info": "Need a little extra help? Improve your skills with private lessons and take your\r\n                            swimming to the next level. We offer both Private and Semi-Private Lessons\r\n                            year-round.",
+    "policy_heading": "Policy",
+    "policy_info": "Cancellations must be made 24 hours before the first class for a full refund.\r\nLessons are held rain or shine, canceled only in case of thunder and/or lightning."
+  }
+},
+{
+  "model": "MastersBAC.scheduleswim",
+  "pk": 1,
+  "fields": {
+    "urgent": "this is from masters swimming urgent",
+    "philosophy": "BAC's Masters Swimming Program offers high-quality training for adults of all skill levels,\r\n                        from beginners to experienced athletes like triathletes, former Olympians, and college\r\n                        champions.\r\n                        The program welcomes anyone interested in organized swim workouts, regardless of their mastery\r\n                        level.\r\n                        Coached sessions provide both aerobic exercise and stroke technique improvement,\r\n                        with access to long course training giving an added advantage.\r\n                        The team fosters a strong sense of camaraderie, supporting and motivating each other\r\n                        to succeed in both local and out-of-state events.\r\n                        Whether pursuing personal bests, triathlons, or fitness,\r\n                        BAC's Masters Swimming Program provides a welcoming environment for all.",
+    "weekdays_morning": "5 AM - 7 AM",
+    "weekdays_afternoon": "12:00 PM - !:15 PM",
+    "weekends": "7:00 AM - 8:30 AM",
+    "shortCourse_morning_practices": "Tuesday - Friday",
+    "shortCourse_afternoon_practices": "Monday - Friday",
+    "shortCourse_weekend_pracitces": "Saturday",
+    "longCourse_morning_pracitces": "Monday",
+    "longCourse_weekend_pracitces": "Sunday",
+    "registration": "To participate in BAC's Masters Swimming program, all swimmers are required to\r\n                    be active members of <a href=\"https://www.usms.org/join\">US Masters Swimming (USMS)</a>. Proof of\r\n                    USMS\r\n                    membership is necessary\r\n                    before starting training, regardless of being a pass-holder or drop-in participant.\r\n                    Membership needs to be renewed annually at the beginning of each calendar year.\r\n                    To register for the Masters program, individuals should send a copy of their current\r\n                    USMS membership to <a href=\"mailto:davidspitzler@yahoo.com\">davidspitzler@yahoo.com</a>.",
+    "quarterly_fee": "1.00",
+    "monthly_fee": "2.00",
+    "daily_fee": "3.00"
+  }
+},
+{
+  "model": "MastersBAC.schedulepolo",
+  "pk": 1,
+  "fields": {
+    "urgent": "polo players be crazy",
+    "philosophy": "BAC offers a competitive Masters water polo program for individuals aged 18 and above,\r\n                        known as Burlingame Master's Water Polo. The program is designed for experienced players,\r\n                        many of whom have college-level water polo experience.\r\n                        Proficiency in the game and swimming at the team's pace are expected.\r\n\r\n\r\n                        Since this program maintains a high level of play, players are required to undergo\r\n                        a tryout and consultation with coaches to assess their suitability for the program.\r\n                        The priority is to ensure a safe and suitable environment for both new and existing\r\n                        players. The group occasionally participates in tournaments, including major events\r\n                        like US Masters Nationals and local Pacific Zone League competitions.\r\n                        However, such tournament participation involves additional costs and is not organized\r\n                        by BAC.",
+    "schedule_notes": "ALL NEW PLAYERS MUST CONTACT THE COACHES PRIOR TO COMING\r\n                        TO PRACTICE AND GETTING IN THE POOL (email Peter Jacobs)\r\n\r\n                        NO MORE DROP-INS ON TUESDAYS AND THURSDAYS",
+    "weekday": "Tuesday + Thursday",
+    "weekdays_timeframe": "7:30 PM - 9:00 PM",
+    "weekends": "Saturday",
+    "weekends_timeframe": "Never",
+    "location": "Burlingame High School",
+    "practiceNotes_one": "Tuesday and Thursday practices are always on unless otherwise noted",
+    "practiceNotes_two": "A poll for Saturdsay pratice is sent out Friday morning to confirm sufficient attendance\r\n                                to\r\n                                scrimmage",
+    "practiceNotes_three": "In order to get added to the Google Groups email list that includes practice polls,\r\n                                updates\r\n                                on time changes,\r\n                                holidays, etc., please contact group leader <a href=\"mailto:pjacobs89@gmail.com \">Peter\r\n                                    Jacobs</a>.",
+    "practiceNotes_four": "",
+    "registration": "<p>\r\n                    To join the Burlingame Masters Water Polo Club, individuals need to be registered as\r\n                    drop-in athletes, monthly members, or quarterly members. Monthly membership offers\r\n                    unlimited practice access starting from any date. Drop-in athletes are required to\r\n                    pay a fee before each practice session to participate in the water polo activities.\r\n                </p>",
+    "monthly_fee": "70.00",
+    "daily_fee": "15.00"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2023-09-04T05:32:31.270Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lapswim",
+      "schedule"
+    ],
+    "object_id": "1",
+    "object_repr": "Schedule object (1)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2023-09-04T05:43:13.359Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lapswim",
+      "schedule"
+    ],
+    "object_id": "1",
+    "object_repr": "Schedule object (1)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2023-09-04T05:47:59.059Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lapswim",
+      "schedule"
+    ],
+    "object_id": "1",
+    "object_repr": "Schedule object (1)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2023-09-04T22:04:29.557Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lapswim",
+      "schedule"
+    ],
+    "object_id": "1",
+    "object_repr": "Schedule object (1)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2023-09-04T22:18:32.037Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lapswim",
+      "schedule"
+    ],
+    "object_id": "1",
+    "object_repr": "Schedule object (1)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2023-09-04T22:26:02.804Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lapswim",
+      "schedule"
+    ],
+    "object_id": "1",
+    "object_repr": "Schedule object (1)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2023-09-04T22:26:08.843Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lapswim",
+      "schedule"
+    ],
+    "object_id": "2",
+    "object_repr": "Schedule object (2)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2023-09-04T22:26:17.184Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lapswim",
+      "schedule"
+    ],
+    "object_id": "2",
+    "object_repr": "Schedule object (2)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2023-09-04T22:26:17.194Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lapswim",
+      "schedule"
+    ],
+    "object_id": "1",
+    "object_repr": "Schedule object (1)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2023-09-04T22:46:36.113Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lapswim",
+      "schedule"
+    ],
+    "object_id": "4",
+    "object_repr": "Schedule object (4)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2023-09-04T22:46:36.123Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lapswim",
+      "schedule"
+    ],
+    "object_id": "3",
+    "object_repr": "Schedule object (3)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2023-09-04T22:46:36.133Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lapswim",
+      "schedule"
+    ],
+    "object_id": "1",
+    "object_repr": "Schedule object (1)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2023-09-05T04:18:32.304Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "AquaAerobic",
+      "schedule"
+    ],
+    "object_id": "1",
+    "object_repr": "Schedule object (1)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2023-09-07T23:17:16.095Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lessons",
+      "groupdetailschedule"
+    ],
+    "object_id": "1",
+    "object_repr": "GroupDetailSchedule object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Parent and me age\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2023-09-08T03:33:04.176Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lessons",
+      "groupdetailschedule"
+    ],
+    "object_id": "1",
+    "object_repr": "GroupDetailSchedule object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Preschool3 description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2023-09-08T03:48:04.125Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lessons",
+      "groupdetailschedule"
+    ],
+    "object_id": "1",
+    "object_repr": "GroupDetailSchedule object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Small pool one description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2023-09-08T03:50:15.314Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lessons",
+      "groupdetailschedule"
+    ],
+    "object_id": "1",
+    "object_repr": "GroupDetailSchedule object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Small pool one name\", \"Small pool one age\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2023-09-08T03:52:22.823Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lessons",
+      "groupdetailschedule"
+    ],
+    "object_id": "1",
+    "object_repr": "GroupDetailSchedule object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Small pool two name\", \"Small pool two description\", \"Small pool two age\", \"Small pool three name\", \"Small pool three description\", \"Small pool three age\", \"Small pool four name\", \"Small pool four description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2023-09-08T04:20:02.811Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lessons",
+      "groupdetailschedule"
+    ],
+    "object_id": "1",
+    "object_repr": "GroupDetailSchedule object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Small pool one description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2023-09-08T04:20:15.927Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lessons",
+      "groupdetailschedule"
+    ],
+    "object_id": "1",
+    "object_repr": "GroupDetailSchedule object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Small pool one description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2023-09-08T04:42:14.250Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lessons",
+      "groupdetailschedule"
+    ],
+    "object_id": "1",
+    "object_repr": "GroupDetailSchedule object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Big pool one name\", \"Big pool one description\", \"Big pool one age\", \"Big pool four name\", \"Big pool four description\", \"Big pool four age\", \"Big pool five name\", \"Big pool five description\", \"Big pool five age\", \"Big pool seven age\", \"Big pool eight name\", \"Big pool eight description\", \"Big pool eight age\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2023-09-08T04:43:00.057Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lessons",
+      "groupdetailschedule"
+    ],
+    "object_id": "1",
+    "object_repr": "GroupDetailSchedule object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Urgent\", \"Big pool one name\", \"Big pool one description\", \"Big pool one age\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2023-09-08T04:45:58.965Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lessons",
+      "groupdetailschedule"
+    ],
+    "object_id": "1",
+    "object_repr": "GroupDetailSchedule object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Registration info\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2023-09-08T04:46:06.306Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Lessons",
+      "groupdetailschedule"
+    ],
+    "object_id": "1",
+    "object_repr": "GroupDetailSchedule object (1)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Registration info\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2023-09-11T03:44:37.762Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Coaches",
+      "coach"
+    ],
+    "object_id": "3",
+    "object_repr": "hello",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2023-09-11T03:44:37.767Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Coaches",
+      "coach"
+    ],
+    "object_id": "2",
+    "object_repr": "perry",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2023-09-11T03:44:37.770Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Coaches",
+      "coach"
+    ],
+    "object_id": "1",
+    "object_repr": "1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2023-09-11T03:44:43.292Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Coaches",
+      "mcoachswim"
+    ],
+    "object_id": "6",
+    "object_repr": "asdfasdfsd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2023-09-11T03:44:43.296Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Coaches",
+      "mcoachswim"
+    ],
+    "object_id": "5",
+    "object_repr": "asdfsadf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2023-09-11T03:44:43.301Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Coaches",
+      "mcoachswim"
+    ],
+    "object_id": "4",
+    "object_repr": "askldfjlasdjf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2023-09-11T03:44:43.305Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Coaches",
+      "mcoachswim"
+    ],
+    "object_id": "3",
+    "object_repr": "nobody",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2023-09-11T03:44:43.309Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Coaches",
+      "mcoachswim"
+    ],
+    "object_id": "2",
+    "object_repr": "perry",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2023-09-11T03:44:43.314Z",
+    "user": [
+      "adminBAC"
+    ],
+    "content_type": [
+      "Coaches",
+      "mcoachswim"
+    ],
+    "object_id": "1",
+    "object_repr": "steve",
+    "action_flag": 3,
+    "change_message": ""
+  }
+}
+]

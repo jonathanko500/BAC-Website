@@ -1,0 +1,110 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global styles */
+body {
+    line-height: 1.6;
+}
+
+#scheduleInfo h1 {
+    margin-bottom: 10px;
+}
+
+.PG-content {
+    background-color: gold;
+}
+
+#info-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#top-lesson {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#schedule,
+#desc,
+#gLessonPic {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#schedule {
+    margin-right: 20px;
+    /* Add a gap between schedule and desc */
+
+}
+
+#schedule h1,
+#desc h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+#schedule ul,
+#desc p {
+    margin-bottom: 20px;
+}
+
+#detail {
+    background-color: #fff;
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#detail h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+#detail p,
+#detail ul {
+    margin-bottom: 20px;
+}
+
+#reg,
+#waitlist,
+#policy {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+#reg h2,
+#waitlist h2,
+#policy h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+#gLessonPic img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}

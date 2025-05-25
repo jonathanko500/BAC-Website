@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC Masters Waterpolo</title>
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Masters/Polo/mPolo.css' %}">
+</head>
+
+<body id="PG-grid">
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Banner Section -->
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="/static/BAC.png" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff" style="text-align: right; margin-right: 10px;">
+            <div id="addJob">
+                <a id="jobDesc" class="custom-link" href="{% url 'aboutus:jobDesc' %}">
+                    Available Jobs
+                </a>
+            </div>
+
+            <div id="user-login">
+                {% if user.is_authenticated %}
+                <div class="user-welcome">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-logout custom-link">
+                            Welcome {{ user.username }}
+                        </button>
+                    </form>
+                    <a href="{% url 'masters:edit_polo_schedule' %}" class="btn custom-link">
+                        Edit Page
+                    </a>
+                </div>
+                {% else %}
+                <a id="login" class="custom-link" href="/login">Staff Log In</a>
+                {% endif %}
+            </div>
+            
+            <div id="about-us">
+                <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}">About Us</a>
+            </div>
+
+            <div id = holiday>
+                <a id="holiday" class="custom-link" href="{% url 'holiday:holiday_view' %}">Holiday Schedule</a>
+            </div>
+        </div>
+
+
+    </header>
+
+    <!-- Content Section -->
+    <div class="PG-content">
+        <!-- Title Section -->
+        <div id="title" class="box">
+            <h1>BAC Masters Waterpolo</h1>
+            <div id="emergency-anouncement-container">
+                <h3 id="emergency-anouncement-Masters-polo" class="emergency-anouncement">
+                    {{ schedules.first.urgent }}
+                </h3>
+            </div>
+        </div>
+
+        <div id="container">
+            <div class="info-with-pic">
+                <div id="info">
+                    <h2>Philosophy</h2>
+                    <p>
+                        {{ schedules.first.philosophy |linebreaksbr }}
+                    </p>
+
+                    <a id="poloMastersCoaches" class="custom-link" href="{% url 'coaches:mastersPoloCoaches' %}">
+                        Meet Our Coaches
+                    </a>
+                </div>
+                <div id="mastersPoloPic">
+                    <img src="/static/mWOPO.JPG" alt="mastersPoloPic" id="mastersPoloPic">
+                </div>
+            </div>
+
+            <div id="schedule">
+                <div class="schedule-col">
+                    <h2>Schedule</h2>
+                    <p>{{ schedules.first.schedule_notes | safe }}</p>
+                </div>
+
+                <div id="scheduleInfo" class="schedule-row">
+                    <div id="poloSchedule" class="schedule-col">
+                        <h3>Weekdays</h3>
+                        <ul>
+                            {% if schedules.first.weekday %}
+                            <li>{{ schedules.first.weekday | safe }}</li>
+                            {% endif %}
+
+                            {% if schedules.first.weekdays_timeframe %}
+                            <li>{{ schedules.first.weekdays_timeframe | safe }}</li>
+                            {% endif %}
+                        </ul>
+                        <h3>Weekends</h3>
+                        <ul>
+                            {% if schedules.first.weekends %}
+                            <li>{{ schedules.first.weekends | safe }}</li>
+                            {% endif %}
+
+                            {% if schedules.first.weekends_timeframe %}
+                            <li>{{ schedules.first.weekends_timeframe | safe }}</li>
+                            {% endif %}
+                        </ul>
+                        <h3>Practice Location</h3>
+                        <ul>
+                            {% if schedules.first.location %}
+                            <li>{{ schedules.first.location | safe }}</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+
+                    <div id="poloPracNotes" class="schedule-col">
+                        <h3>Practice Notes</h3>
+                        <h4>Held Practices</h4>
+                        <ul>
+                            {% if schedules.first.practiceNotes_one %}
+                            <li>{{ schedules.first.practiceNotes_one | safe }}</li>
+                            {% endif %}
+
+                            {% if schedules.first.practiceNotes_two %}
+                            <li>{{ schedules.first.practiceNotes_two | safe }}</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+
+                    <div id="poloPracNotes" class="schedule-col">
+                        <h3>Practice Notes</h3>
+                        <h4>Held Practices</h4>
+                        <ul>
+                            {% if schedules.first.practiceNotes_three %}
+                            <li>{{ schedules.first.practiceNotes_three | safe }}</li>
+                            {% endif %}
+
+                            {% if schedules.first.practiceNotes_four %}
+                            <li>{{ schedules.first.practiceNotes_four | safe }}</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="reg" class="schedule-col-2">
+                <h2>Registration</h2>
+                {{ schedules.first.registration | safe }}
+            </div>
+
+            <div id="fees" class="schedule-col-2">
+                <h2>Fees</h2>
+                <div>
+                    <h3>Gold Team Monthly (Tu/Th/Sat): ${{ schedules.first.gold_fee }}/Monthly</h3>
+                    <h3>Blue Team Monthly (Th/Sat): ${{ schedules.first.blue_fee }}/Monthly</h3>
+                    <h3>10-pack of Drop-in's: ${{ schedules.first.ticket_fee }}</h3>
+                    <h3>Single Drop-in : ${{ schedules.first.daily_fee }}</h3>
+                    <a id="Register" class="custom-link"
+                        href="https://secure.rec1.com/CA/burlingame-aquatics-ca/catalog">Register Here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div id="foot">
+            <h2>Questions?</h2>
+            <h3>Contact our Front Desk!</h3>
+            <h3>programs@burlingameaquatics.com</h3>
+            <h3>(650) 558 2881</h3>
+        </div>
+    </footer>
+</body>
+
+</html>

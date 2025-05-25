@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/everything2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/Popup.css' %}">
+    <title>Burlingame Aquatic Club</title>
+</head>
+
+<body id="PG-grid">
+    <video autoplay muted loop id="background-video">
+        <source src="{% static 'PoolSurface.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header class="banner">
+        <div id="banner-bin">
+            <div id="banner-button">
+                <a href="{% url 'index' %}" id="logo">
+                    <img src="{% static 'BAC.png' %}" alt="BAC-logo" id="BAC-logo">
+                </a>
+            </div>
+        </div>
+
+        <div id="staff" style="text-align: right; margin-right: 10px;">
+
+            <div id="addJob">
+                <a id="jobDesc" class="custom-link" href="{% url 'aboutus:jobDesc' %}">Available Jobs</a>
+            </div>
+
+            <div id="user-login">
+                {% if user.is_authenticated %}
+                <div class="user-welcome">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-logout custom-link">
+                            Welcome {{ user.username }}
+                        </button>
+                    </form>
+                    <a href="{% url 'edit_homePage' %}" class="btn custom-link" >Edit
+                        Page</a>
+                </div>
+                {% else %}
+                <a id="login" class="custom-link" href="/login">Staff Log In</a>
+                {% endif %}
+            </div>
+
+            <div id="about-us">
+                <a id="aboutus" class="custom-link" href="{% url 'aboutus:aboutus' %}">About Us</a>
+            </div>
+
+            <div id = holiday>
+                <a id="holiday" class="custom-link" href="{% url 'holiday:holiday_view' %}">Holiday Schedule</a>
+            </div>
+
+        </div>
+
+    </header>
+
+    <div id="PG-content">
+        <div id="all">
+
+            {% if homepages.first.announcement %}
+            <div id="title" class="box">
+                <div class="title-box">
+                    <div id="emergency-anouncement-container">
+                        <h3 id="emergency-anouncement-lap-swim" class="emergency-anouncement">
+                            {{ homepages.first.announcement | linebreaksbr | urlize }}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="intro">
+                <div class="message-box">
+                    <div id="message-bin">
+                        <h1 class="responsive-h1" style="font-size: 37px;">Welcome to Burlingame Aquatic Club</h1>
+                    </div>
+                </div>
+
+                <div class="pool-container">
+                    <div id="pool">
+                        <img src="{% static 'BAC-pool.png' %}" id="BAC-pool" alt="BAC Pool">
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="section" id="community">
+                    <h1>Community</h1>
+                    <div class="link-group link-grid">
+                        <a id="lap" class="custom-link" href="{% url 'lapswim:index' %}">Lap Swim</a>
+                        <a id="rec" class="custom-link" href="{% url 'recswim:index' %}">Recreational Swim</a>
+                        <a id="aerobic" class="custom-link" href="{% url 'aquaaerobic:index' %}">Aqua Aerobics</a>
+                        <a id="lesson" class="custom-link" href="{% url 'lessons:swim_lessons' %}">Swim Lessons</a>
+                        {% if homepages.first.show_download_link %}
+                            <a id="summer" class="custom-link" href="{% url 'summProgram:summProgram' %}">Summer Program</a>
+                        {% endif %}
+
+
+                    </div>
+                </div>
+
+                <div class="section" id="masters">
+                    <h1>Masters Team</h1>
+                    <div class="link-group">
+                        <a id="swimMasters" class="custom-link" href="{% url 'masters:mastersSwim' %}">Swim Team</a>
+                        <a id="wopoMasters" class="custom-link" href="{% url 'masters:mastersPolo' %}">Water Polo</a>
+                    </div>
+                </div>
+
+                <div class="section" id="comp">
+                    <h1>Competitive Teams</h1>
+                    <div class="link-group">
+                        <a id="swimTeam" class="custom-link" href="{% url 'competitive:compSwim' %}">Swim Team</a>
+                        <a id="wopo" class="custom-link" href="{% url 'competitive:compPolo' %}">Water Polo</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
